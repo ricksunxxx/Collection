@@ -6,18 +6,12 @@
   中文来自：https://segmentfault.com/a/1190000005681454?utm_source=tuicool&utm_medium=referral
 */
 
-/*
-  第一题：
 
-  注意：IE8以下不支持map方法
-*/
+//********************第1题：********************
 ["1", "2", "3"].map(parseInt); //[1, NaN, NaN]
-
 /*
   解释：
-
   注意：IE8以下不支持map方法
-
   知识点: Array/map  Number/parseInt
 
   首先, map接受两个参数, 一个回调函数callback, 一个回调函数的this值，其中回调函数接受三个参数currentValue, index, arrary;
@@ -35,5 +29,22 @@
   parseInt('3', 2);
 
   题目变形：["1", "2", "3"].map(Number);//[1,2,3]
+*/
 
+//********************第2题：********************
+[typeof null, null instanceof Object]; //["object", false]
+/*
+  解释：
+    X                      typeof X
+  undefined              "undefined"
+  null                   "object"
+  true或false            "boolean"
+  任意数字或者NaN        "number"
+  任意字符串             "string"
+  任意函数               "function"
+  任意内置对象(非函数)   "object"
+
+  o instanceof f 
+  先计算f.prototype，然后在原型链中查找o，如果找到，那么o是f（或者f的父类）的一个实例，表达式返回true；
+  如果f.prototype不在o的原型链上的话，那么o就不是f的实例，instanceof返回false。
 */
