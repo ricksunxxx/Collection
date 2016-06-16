@@ -40,7 +40,7 @@
   undefined               "undefined"
   null                    "object"
   true或false             "boolean"
-  任意数字或者NaN         "number"
+  任意数字或者NaN          "number"
   任意字符串               "string"
   任意函数                  "function"
   任意内置对象(非函数)       "object"
