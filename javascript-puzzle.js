@@ -37,15 +37,16 @@
 /*
   解释：
     X                      typeof X
-  undefined              "undefined"
-  null                   "object"
-  true或false            "boolean"
-  任意数字或者NaN        "number"
-  任意字符串             "string"
-  任意函数               "function"
-  任意内置对象(非函数)   "object"
+  undefined               "undefined"
+  null                    "object"
+  true或false             "boolean"
+  任意数字或者NaN         "number"
+  任意字符串               "string"
+  任意函数                  "function"
+  任意内置对象(非函数)       "object"
 
-  o instanceof f   The instanceof operator tests whether an object has in its prototype chain the prototype property of a constructor.
+  o instanceof f   
+  The instanceof operator tests whether an object has in its prototype chain the prototype property of a constructor.
   先计算f.prototype，然后在原型链中查找o，如果找到，那么o是f（或者f的父类）的一个实例，表达式返回true；
   如果f.prototype不在o的原型链上的话，那么o就不是f的实例，instanceof返回false。
 */
