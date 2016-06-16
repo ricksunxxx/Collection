@@ -1,0 +1,24 @@
+/*
+  CSS面试点
+   
+  对原文答案进行验证，同时添加自己对题目的理解。
+  收集时间：2016-06-16     
+  来自：https://github.com/paddingme/Front-end-Web-Development-Interview-Question/blob/master/%E5%89%8D%E7%AB%AF%E8%AF%95%E9%A2%98/1.md
+*/
+
+//********************第1题********************
+
+/*
+Q: 行内(inline)元素 设置margin-top和margin-bottom 是否起作用？
+A：如果是替换元素，设置margin-top和margin-bottom是不会影响行高的，此时是不起作用的，但是左右边距是起作用的；
+   如果是非替换元素，设置margin-top和margin-bottom影响了行高，会起作用，左右边距同样也是起作用的。
+
+解释：
+html 里的元素分为替换元素（replaced element）和非替换元素（non-replaced element）。
+替换元素：是指用作为其他内容占位符的一个元素。最典型的就是img，它只是指向一个图像文件。以及大多数表单元素也是替换，例如input等。
+非替换元素：是指内容包含在文档中的元素。例如，如果一个段落的文本内容都放在该元素本身之内，则这个段落就是一个非替换元素。
+讨论margin-top和margin-bottom对行内元素是否起作用，则要对行内替换元素和行内非替换元素分别讨论。
+
+延伸：
+如果是inline-block，边距都会正常起作用。
+*/
