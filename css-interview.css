@@ -22,3 +22,26 @@ html 里的元素分为替换元素（replaced element）和非替换元素（no
 延伸：
 如果是inline-block，边距都会正常起作用。
 */
+
+//********************第2题********************
+
+/*
+Q: 伪类选择器:checked将作用与input类型为radio或者checkbox,不会作用于option。
+A: 不对，都起作用。
+
+解释：
+The :checked CSS pseudo-class selector represents any radio (<input type="radio">), 
+checkbox (<input type="checkbox">) or option (<option>in a <select>) element that is checked or toggled to an on state. 
+The user can change this state by clicking on the element, or selecting a different value, 
+in which case the :checked pseudo-class no longer applies to this element, but will to the relevant one.
+
+延伸：
+用jQuery获取select的值和显示的文本，可以简单用以下方法，假如当前选中a2
+    <select name="" id="aa">
+        <option value="1">a1</option>
+        <option value="2">a2</option>
+        <option value="3">a3</option>
+    </select>
+获取值：$("#aa").val();//"2",用$("#aa :checked").val()也是可以的，前者更简洁明了
+获取文本：$("#aa :checked").text();//'a2'
+*/
