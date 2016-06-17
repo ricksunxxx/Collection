@@ -50,7 +50,7 @@ in which case the :checked pseudo-class no longer applies to this element, but w
 //********************第3题********************
 
 /*
-Q: 在HTML文本中，伪类:root总是指向html元素？
+Q: 伪类:root总是指向html元素？
 A: 不是，应该是文档树中最顶层结构的元素。
 
 解释：
