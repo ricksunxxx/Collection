@@ -46,3 +46,20 @@ in which case the :checked pseudo-class no longer applies to this element, but w
 获取值：$("#aa").val();//"2",用$("#aa :checked").val()也是可以的，前者更简洁明了
 获取文本：$("#aa :checked").text();//'a2'
 */
+
+//********************第3题********************
+
+/*
+Q: 在HTML文本中，伪类:root总是指向html元素？
+A: 不是，应该是文档树中最顶层结构的元素。
+
+解释：
+CSS 中的根元素是指 :root 选择器匹配到的元素，也就是文档树中最顶层结构的元素。在不同的场景下具体的根元素不同。
+在HTML中是html元素，但在其他情况下，就不是html元素了。
+
+直接在浏览器地址栏输入以下内容，背景色会显示为green，说明root不一定总是指向html元素，而应该是指向文档的顶层元素。
+data:application/xhtml+xml,<div xmlns="http://www.w3.org/1999/xhtml">
+<style>:root { background: green; } html { background: red !important; }</style></div>
+
+解释来自：http://www.zhihu.com/question/38996116/answer/79155223
+*/
