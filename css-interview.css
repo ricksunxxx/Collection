@@ -61,5 +61,5 @@ CSS 中的根元素是指 :root 选择器匹配到的元素，也就是文档树
 data:application/xhtml+xml,<div xmlns="http://www.w3.org/1999/xhtml">
 <style>:root { background: green; } html { background: red !important; }</style></div>
 
-解释来自：http://www.zhihu.com/question/38996116/answer/79155223
+解释来自：http://www.zhihu.com/question/38996116
 */
