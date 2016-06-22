@@ -45,3 +45,18 @@ function bar() {
 }
 var foo = new bar();
 alert(foo.x); //2     如果把var x = 1 改为 var x = {} ,结果是undefined ，暂时没想明白为什么是undefined
+
+//********************第6题********************
+var arg1 = [];
+var arg2 = 1;
+var arg3 = '1';
+var arg4 = false;
+var arg5 = {};
+var arg6 = function() {};
+Object.prototype.toString.call(arg1); //"[object Array]"    
+Object.prototype.toString.call(arg2); //"[object Number]"  
+Object.prototype.toString.call(arg3); //"[object String]"  
+Object.prototype.toString.call(arg4); //"[object Boolean]"  
+Object.prototype.toString.call(arg5); //"[object Object]"  
+Object.prototype.toString.call(arg6); //"[object Function]"     
+//ECMA Script5中定义了新方法Array.isArray(),这是兼容写法用来检测数据类型的。
