@@ -21,7 +21,9 @@
    两者一起使用时，Cache-Control/Expires的优先级要高于Last-Modified/ETag。
    即当本地副本根据Cache-Control/Expires发现还在有效期内时，则不会再次发送请求去服务器询问修改时间或实体标识了。
 
-   一般情况下，使用Cache-Control/Expires会配合Last-Modified/ETag一起使用，因为即使服务器设置缓存时间, 当用户点击“刷新”按钮时，浏览器会忽略缓存继续向服务器发送请求，这时Last-Modified/ETag将能够很好利用304，从而减少响应开销。
+   一般情况下，使用Cache-Control/Expires会配合Last-Modified/ETag一起使用，因为即使服务器设置缓存时间, 
+   当用户点击“刷新”按钮时，浏览器会忽略缓存继续向服务器发送请求，这时Last-Modified/ETag将能够很好利用304，
+   从而减少响应开销。
 
    有Last-Modified，为啥还要ETag
    HTTP1.1中Etag的出现主要是为了解决几个Last-Modified比较难解决的问题：
