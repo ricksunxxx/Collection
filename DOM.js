@@ -28,7 +28,7 @@
  * 节点属性：
  * nodeName属性返回节点的名称，nodeType属性返回节点类型的常数值
  *
- * 类型	                        nodeName				nodeType
+ * 类型	                        nodeName                nodeType
  * DOCUMENT_NODE                #document                   9
  * ELEMENT_NODE                 大写的HTML元素名            1
  * ATTRIBUTE_NODE               等同于Attr.name             2
