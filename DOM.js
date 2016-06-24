@@ -16,11 +16,11 @@
  * Document节点、DocumentType节点、Element节点、Attribute节点、Text节点和DocumentFragment节点。
  *
  * 节点	                  名称	               含义
- * Document	            文档节点	 	    整个文档（window.document）
+ * Document             文档节点            整个文档（window.document）
  * DocumentType     	文档类型节点		文档的类型（比如<!DOCTYPE html>）
  * Element          	元素节点			HTML元素（比如<body>、<a>等）
  * Attribute         	属性节点    		HTML元素的属性（比如class=”right”）
- * Text	                文本节点    	    HTML文档中出现的文本
+ * Text	                文本节点            HTML文档中出现的文本
  * DocumentFragment   	文档碎片节点		文档的片段
  */
 
@@ -29,12 +29,12 @@
  * nodeName属性返回节点的名称，nodeType属性返回节点类型的常数值
  *
  * 类型	                        nodeName				nodeType
- * DOCUMENT_NODE    		    #document					9
- * ELEMENT_NODE					大写的HTML元素名			1
- * ATTRIBUTE_NODE				等同于Attr.name				2
- * TEXT_NODE					#text						3
- * DOCUMENT_FRAGMENT_NODE		#document-fragment			11
- * DOCUMENT_TYPE_NODE			等同于DocumentType.name		10
+ * DOCUMENT_NODE                #document                   9
+ * ELEMENT_NODE                 大写的HTML元素名            1
+ * ATTRIBUTE_NODE               等同于Attr.name             2
+ * TEXT_NODE                    #text                       3
+ * DOCUMENT_FRAGMENT_NODE       #document-fragment          11
+ * DOCUMENT_TYPE_NODE           等同于DocumentType.name     10
  */
 
 /*
