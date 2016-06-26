@@ -56,7 +56,7 @@ document.ownerDocument === null; //true
 /*
  *textContent，nodeValue
  *textContent属性返回当前节点和它的所有后代节点的文本内容,它会自动忽略当前节点内部的HTML标签，返回所有文本内容。
- *设置该属性的值，会自动对HTML标签转义
+ *设置该属性的值，会自动对HTML标签转义。
  *
  *nodeValue属性返回或设置当前节点的值，格式为字符串。但是，该属性只对Text节点、Comment节点、XML文档的CDATA节点有效，
  *其他类型的节点一律返回null。
