@@ -41,12 +41,16 @@
  *ownerDocument，nextSibling，previousSibling，parentNode，parentElement
  *
  *1)ownerDocument属性返回当前节点所在的顶层文档对象，即document对象。document对象本身的ownerDocument属性，返回null。
+ *
  *2)nextSibling属性返回紧跟在当前节点后面的第一个同级节点。如果当前节点后面没有同级节点，则返回null。
- *  该属性还包括文本节点和评论节点。因此如果当前节点后面有空格（或者换行），该属性会返回一个文本节点，内容为空格。
+ *  该属性还包括文本节点和注释节点。因此如果当前节点后面有空格（或者换行），该属性会返回一个文本节点，内容为空格。
  *  为了避免理解上的不一致，建议使用nextElementSibling，这个属性直接找下一个元素节点。
- *3)previousSibling属性跟nextSibling是类似的，也会包含文本节点和评论节点，建议使用previousElementSibling
+ *
+ *3)previousSibling属性跟nextSibling是类似的，也会包含文本节点和注释节点，建议使用previousElementSibling
+ *
  *4)parentNode属性返回当前节点的父节点，父节点只可能是三种类型：element节点、document节点和documentfragment节点。
  *  对于document节点和documentfragment节点，它们的父节点都是null。另外，对于那些生成后还没插入DOM树的节点，父节点也是null。
+ *
  *5)parentElement属性返回当前节点的父Element节点。如果当前节点没有父节点，或者父节点类型不是Element节点，则返回null。
  */
 document.body.ownerDocument === document; //true
@@ -67,3 +71,19 @@ document.ownerDocument === null; //true
  *3)innerText属性不是DOM标准的一部分，Firefox浏览器甚至没有部署这个属性，而textContent是DOM标准的一部分。
  */
 document.getElementById('foo').textContent = '<p>GoodBye!</p>'; //最终显示的内容就是 <p>GoodBye!</p>
+
+
+/*
+ *childNodes，firstChild，lastChild
+ *注意：IE8及以下，空格、换行和回车键不会被当成文本节点。主流浏览器会把空格、换行和回车键当成文本节点。
+ *
+ *childNodes返回NodeList集合，没有匹配的结果时，返回空集合，不是null。
+ *firstChild，lastChild 若没有匹配的结果，则返回null。
+ */
+
+
+/*
+ *baseURI
+ *表示当前网页的绝对路径
+ *document.baseURI === element.baseURI
+ */
