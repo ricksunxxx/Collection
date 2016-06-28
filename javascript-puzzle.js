@@ -110,3 +110,21 @@ console.log(count);
   循环不会停，因为Math.pow(2, 53)是JavaScript的最大值，自增之后还是最大值，for的条件永远满足，所以一直在跑for循环
   如果END不为最大值，则输出101
 */
+
+//********************第6题********************************************************************************
+var ary = [0, 1, 2];
+ary[10] = 10;
+ary.filter(function(x) {
+    return x === undefined;
+}); //返回[],不是[undefined x 7]
+/*
+  解释：	
+  ary === [0,1,2,undefined x 7,10]
+  ary.length === 11
+  arr.filter(callback[, thisArg])，callback默认三个参数：element, index, array
+  英文解释：callback is invoked only for indexes of the array which have assigned values; 
+  it is not invoked for indexes which have been deleted or which have never been assigned values. 
+  Array elements which do not pass the callback test are simply skipped, and are not included in the new array.
+  意思就是说，未赋值的数组元素，不会传入callback，也不会返回在结果中。（Polyfill中是通过in关系运算符进行判断的，这是重点）
+  （稀疏数组用于函数map、forEach、filter等函数，未被赋值的元素都会被忽略掉，类似上面英文的解释）
+*/
