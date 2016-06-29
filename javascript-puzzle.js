@@ -118,7 +118,7 @@ ary.filter(function(x) {
     return x === undefined;
 }); //返回[],不是[undefined x 7]
 /*
-  解释：	
+  解释： 
   ary === [0,1,2,undefined x 7,10]
   ary.length === 11
   arr.filter(callback[, thisArg])，callback默认三个参数：element, index, array
@@ -127,4 +127,39 @@ ary.filter(function(x) {
   Array elements which do not pass the callback test are simply skipped, and are not included in the new array.
   意思就是说，未赋值的数组元素，不会传入callback，也不会返回在结果中。（Polyfill中是通过in关系运算符进行判断的，这是重点）
   （稀疏数组用于函数map、forEach、filter等函数，未被赋值的元素都会被忽略掉，类似上面英文的解释）
+*/
+
+//********************第7题********************************************************************************
+[] == []; //false
+/*
+  解释： 
+  == is the spawn of satan.（撒旦之子，万恶之源）
+  扩展：
+  [] == 0;     //true
+  [1] == 1;    //true
+  ['1'] == 1;  //true
+  [] == false; //true
+  if([]){      
+    console.log(1)
+  }
+  else{
+    console.log(0)
+  }//1  注意：[]放在if条件里面则为真，因为[]是一个对象
+*/
+
+//********************第8题********************************************************************************
+Array.isArray(Array.prototype); //true
+/*
+  解释：
+  一个鲜为人知的实事: Array.prototype => [];
+*/
+
+//********************第9题********************************************************************************
+- 9 % 2 == 1; //false，应该为-1
+- 9 % -2 == 1; //false，应该为-1
+9 % -2 == 1; //true
+'9' % 2 == 1; //true
+/*
+  解释：
+  余数正负号跟操作数一致 
 */
