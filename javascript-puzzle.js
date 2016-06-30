@@ -163,3 +163,33 @@ Array.isArray(Array.prototype); //true
   解释：
   余数正负号跟操作数一致 
 */
+
+//********************第10题********************************************************************************
+Number.MIN_VALUE > 0; //true
+/*
+  解释：
+  Number.MIN_VALUE =>  5e-324  是正数
+  Number.MAX_VALUE =>  1.7976931348623157e+308
+*/
+
+
+//********************第11题********************************************************************************
+[3. toString(), 3..toString(), 3...toString()]; //[error, '3', error]
+/*
+  解释：
+  3.x is a valid syntax to define "3" with a mantissa of x, toString is not a valid number, but the empty string is.
+  注意：
+  var a = 3;
+  a.toString();//'3'
+*/
+
+//********************第12题********************************************************************************
+var x = [].reverse;
+x(); //window
+/*
+  解释：
+  在浏览器下报错，=_= ，Uncaught TypeError: Array.prototype.reverse called on null or undefined(…)
+  原文说法是[].reverse will return this and when invoked without an explicit receiver object it will default 
+  to the default this AKA window
+  求大神指导！！！
+*/
