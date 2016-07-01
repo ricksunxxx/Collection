@@ -1,45 +1,62 @@
 <html>
-<head>
-	<meta charset="utf-8">
-	<style type="text/css">
-	div{
-		width: 980px;
-		height: 500px;
-		margin: 10px auto;
-		border: 1px solid;
-		background: #ddd;
-	}
-	img	{
-		margin: 0;
-		padding: 0;
-		border: 1px solid;
-	}
-	.test01{
-		display: -webkit-box;
-		-webkit-box-pack: center;
-		-webkit-box-align: center;
-	}
 
-	.test02 {
-		text-align: center;
-	}
-	.test02:before {
-		content: '';
-		display: inline-block;
-		height: 100%;
-		vertical-align: middle;
-	}
-	.test02  .img02 {
-		display: inline-block;
-		vertical-align: middle;
-	}
-	</style>
+<head>
+    <meta charset="utf-8">
+    <style type="text/css">
+    div {
+        width: 250px;
+        height: 250px;
+        margin: 10px auto;
+        border: 1px solid;
+        background: #ddd;
+    }
+    
+    img {
+        display: block;
+        border: 1px solid;
+        margin: 0;
+        padding: 0;
+        width: auto;
+        height: auto;
+        max-width: 200px;
+        max-height: 200px;
+    }
+    /***********IE10及以上支持，移动端比较适合使用**********************/
+    
+    .test01 {
+        /*新版写法，W3C标准*/
+        display: -webkit-flex;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /*旧版写法，非标准，解决兼容问题*/
+        display: -webkit-box;
+        -webkit-box-pack: center;
+        -webkit-box-align: center;
+    }
+    /***********IE8及以上支持*********************************/
+    
+    .test02 {
+        text-align: center;
+    }
+    
+    .test02:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+    }
+    
+    .test02 img {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    </style>
 </head>
 
 <body>
-	<div class="test01"><img class="img01" src="https://www.baidu.com/img/bd_logo1.png"></div>
-
-
-	<div class="test02"><img class="img02" src="https://www.baidu.com/img/bd_logo1.png"> </div>
+    <div class="test01"><img src="https://www.baidu.com/img/bd_logo1.png"></div>
+    <div class="test02"><img src="https://www.baidu.com/img/bd_logo1.png"> </div>
 </body>
+
 </html>
