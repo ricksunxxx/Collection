@@ -20,7 +20,7 @@
         max-height: 200px;
     }
     /*第1种方法：flex
-      IE10及以上支持，移动端比较适合使用
+      兼容IE10及以上，移动端比较适合使用
     */
     
     .test01 {
@@ -35,14 +35,14 @@
         -webkit-box-align: center;
     }
     /*第2种方法：inline-block
-      IE8及以上支持
+      兼容IE8及以上
     */
     
     .test02 {
         text-align: center;
     }
     
-    .test02:before {
+    .test02:after {
         content: '';
         display: inline-block;
         height: 100%;
@@ -54,7 +54,7 @@
         vertical-align: middle;
     }
     /*第3种方法：table-cell
-      父容器不能加浮动、绝对定位
+      兼容IE8及以上，父容器不能加浮动、绝对定位
     */
     
     .test03 {
@@ -66,12 +66,11 @@
     .test03 img {
         vertical-align: middle;
     }
-    /*第4种方法：line-height  font-size
-      父容器的height要知道，子元素为行内元素，inline或者inline-block
-      兼容IE7及以上
-
-      注意：IE7非常奇葩，父元素的开始标签后面和子元素后面如果没有回车换行，垂直居中会失效，很大的坑啊。
-
+    /*第4种方法：line-height  font-size      
+      兼容IE7及以上，父容器的height要知道，子元素为行内元素，inline或者inline-block
+      
+      注意：
+      IE7非常奇葩，父元素的开始标签后面和子元素后面如果没有回车换行，垂直居中会失效，很大的坑啊。
     */
     
     .test04 {
