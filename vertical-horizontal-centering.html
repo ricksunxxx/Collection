@@ -1,27 +1,27 @@
+<!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
-    <style type="text/css">
+    <style>
     div {
         width: 250px;
         height: 250px;
         margin: 10px auto;
-        border: 1px solid;
+        border: 1px solid #000;
         background: #ddd;
     }
     
     img {
-        display: block;
-        border: 1px solid;
+        border: 1px solid #000;
         margin: 0;
         padding: 0;
-        width: auto;
-        height: auto;
         max-width: 200px;
         max-height: 200px;
     }
-    /***********IE10及以上支持，移动端比较适合使用**********************/
+    /*第1种方法：flex
+      IE10及以上支持，移动端比较适合使用
+    */
     
     .test01 {
         /*新版写法，W3C标准*/
@@ -34,7 +34,9 @@
         -webkit-box-pack: center;
         -webkit-box-align: center;
     }
-    /***********IE8及以上支持*********************************/
+    /*第2种方法：inline-block
+      IE8及以上支持
+    */
     
     .test02 {
         text-align: center;
@@ -51,12 +53,46 @@
         display: inline-block;
         vertical-align: middle;
     }
+    /*第3种方法：table-cell
+      父容器不能加浮动、绝对定位
+    */
+    
+    .test03 {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+    }
+    
+    .test03 img {
+        vertical-align: middle;
+    }
+    /*第4种方法：line-height  font-size
+      父容器的height要知道，子元素为行内元素，inline或者inline-block
+      兼容IE7及以上
+
+      注意：IE7非常奇葩，父元素的开始标签后面和子元素后面如果没有回车换行，垂直居中会失效，很大的坑啊。
+
+    */
+    
+    .test04 {
+        text-align: center;
+        line-height: 250px;
+        font-size: 0;
+    }
+    
+    .test04 img {
+        vertical-align: middle;
+    }
     </style>
 </head>
 
 <body>
     <div class="test01"><img src="https://www.baidu.com/img/bd_logo1.png"></div>
     <div class="test02"><img src="https://www.baidu.com/img/bd_logo1.png"> </div>
+    <div class="test03"><img src="https://www.baidu.com/img/bd_logo1.png"> </div>
+    <div class="test04">
+        <img src="https://www.baidu.com/img/bd_logo1.png">
+    </div>
 </body>
 
 </html>
