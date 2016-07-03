@@ -193,3 +193,31 @@ x(); //window
   to the default this AKA window
   求大神指导！！！
 */
+
+//********************第13题********************************************************************************
+var a = {}, b = Object.prototype;
+[a.prototype === b, Object.getPrototypeOf(a) === b];//[false, true]
+/*
+  解释：
+  除开undefined和null没有prototype属性外，其他数据类型都有prototype属性，但，只有函数的prototype属性返回
+  一个空对象，其他都返回undefined
+
+  废话少说，见下面：
+         var a           a.prototype                                       Object.getPrototypeOf(a)
+           1               undefined                     Number {[[PrimitiveValue]]: 0}
+          '1'              undefined                     String {length: 0, [[PrimitiveValue]]: ""}
+          true             undefined                     Boolean {[[PrimitiveValue]]: false}
+          /123/            undefined                     Object {}
+          function(){}     Object {}                     function(){}
+          {}               undefined                     Object {}
+          []               undefined                     []
+          undefined       Uncaught TypeError: Cannot read property 'prototype' of undefined(…)
+          null            Uncaught TypeError: Cannot read property 'prototype' of null(…)
+      undefined/null                                     Uncaught TypeError: Cannot convert undefined or null to object(…)
+
+  题目中b = Object.prototype ，因为Object就是一个函数（构造函数也是函数啊,即 Object.prototype 返回 Object {}
+
+  注意：
+  如果var a = function(){}; 
+  则  a.prototype == Object.getPrototypeOf(a);//false
+*/
