@@ -215,9 +215,11 @@ var a = {}, b = Object.prototype;
           null            Uncaught TypeError: Cannot read property 'prototype' of null(…)
       undefined/null                                     Uncaught TypeError: Cannot convert undefined or null to object(…)
 
-  题目中b = Object.prototype ，因为Object就是一个函数（构造函数也是函数啊,即 Object.prototype 返回 Object {}
+  题目中b = Object.prototype ，其实Object是一个函数，本质上是一个对象，故 Object.prototype 返回 一个空对象
 
   注意：
   如果var a = function(){}; 
-  则  a.prototype == Object.getPrototypeOf(a);//false
-*/
+  a.prototype === Object.getPrototypeOf(a);//false
+  a.prototype === Object.getPrototypeOf(new a());//ture
+
+*/  
