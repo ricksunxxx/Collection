@@ -116,11 +116,20 @@ if (typeof Array.prototype.indexOf != "function") {
   };
 }
 //**********************************************02******************************************************************
-//IE < 9 不支持String的如下方法：trim
+//IE < 9 不支持String的trim方法
 //polyfill for trim as :
 if (!String.prototype.trim){
 	String.prototype.trim = function() {
         return this.replace(/^\s+|\s+$/g, "");
     };
 }
+
+//substr(start,length)在IE8浏览器中，start取负数不起作用，会被当做为0
+//解决方法为：substr(stringObject.length + start,length)
+var str = 'abcd';
+str.substr(-2,3);//正确应该是"cd"，IE8输出"abc"，因为-2无效，直接当做0处理
+str.substr(str.length-2,3);//IE8输出"cd"
+//但是，ECMAscript 没有对该方法进行标准化，因此反对使用它，建议使用 substring(start,end) 和 slice(start,end)
+//substring()不接受负的参数，slice()可以。
+
 
