@@ -1,6 +1,13 @@
-/********************************************01*******************************************************/
+1、
+IE10及以上去掉了条件注释,以下注释只在IE9及以下
+!--[if IE]>
+<link rel="stylesheet" href="css.css"  type="text/css"/>
+<![endif]-->
 
-// IE10及以上去掉了条件注释,以下注释只在IE9及以下
-//<!--[if IE]>
-//<link rel="stylesheet" href="css.css"  type="text/css"/>
-//<![endif]-->
+
+2、
+IE5-8不支持opacity，解决办法：
+.opacity {
+    opacity: 0.4
+    filter: alpha(opacity=60); 
+}
