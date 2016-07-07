@@ -1,0 +1,61 @@
+1、ES6新特性
+   1) let:声明的变量具有块级作用域，避免污染作用域外的同名变量，避免循环变量泄露成为全局变量
+   2) const:声明的是常量,如果常量被进行赋值操作，则报错，一般用在引入第三方库时，作为全局使用。
+      例如：const jQuery = require('jQuery');
+   3) class, extends, super的引入改写了ES5中使用原型链来实现继承的方式，变得更加简洁明了
+      例如：
+            class Animal {
+                 constructor(){
+                     this.type = 'animal';
+                 }
+                 says(say){
+                     console.log(this.type + ' says ' + say);
+                 }
+            }
+
+            let animal = new Animal();
+            animal.says('hello') ;//animal says hello
+
+            class Cat extends Animal {
+                 constructor(){
+                     super(); //如果不调用super方法，子类继承不了父类的this对象
+                     this.type = 'cat';
+                 }
+            }
+
+            let cat = new Cat();
+            cat.says('hello'); //cat says hello   
+   4)arrow function 箭头函数，简洁是第一特性，第二特性是解决this指向问题，在ES5中调用对象里的方法时，
+     经常要注意this的指向问题，在箭头函数中它指向的是定义时的上下文对象，而不是运行时的上下文对象。
+     例如：
+          function(i){ return i + 1; } //ES5
+          (i) => i + 1 //ES6  
+
+   5)template string 模板字符串，用反引号(`)来标识起始，用${}来引用变量，空格和缩进都会被保留在输出之中
+     例如：
+          $("#result").append(`
+            There are <b>${basket.count}</b> items
+            in your basket, <em>${basket.onSale}</em>
+            are on sale!
+           `);
+   6)destructuring 解构
+     数组解构：
+     var [a, b, c] = [1, 2, 3, 4, 5];  // a = 1; b = 2; c = 3;
+     数组解构一般用于赋值，特别是调用函数返回多个数值要分别赋值给不同的变量。
+     对象解构：
+     let dog = {type: 'animal', many: 2};
+     let { type, many} = dog;  //type='animal'; many=2;
+     对象解构一般用于定义函数的参数，良好的API参数一般都是用一个对象来进行传递，不用记住参数的顺序
+
+   7)default 函数参数默认值
+     function animal(type = 'cat'){
+        console.log(type)
+     }
+     animal();
+    8)rest  ...a ：把剩下的参数归集到a中，它是个数组，你懂的啦
+      例如：
+      'use strict';  
+       function func(a,b,...args){  
+           console.log(args);
+       }  
+       func(1,2,3,4); //[3,4]  
