@@ -76,4 +76,6 @@
    表示border-top-left-radius 和 border-bottom-right-radius是10px,其余角是20px,跟border一样遵循TRBL原则。
 
    background:-webkit-linear-gradient(top,#FFF 50%,#999,green ,#000);
-   top表示从上到下渐变颜色，#FFF是起始颜色，#000是终止颜色，中间的颜色可以选，50%表示#FFF占据背景色一般然后在进行渐变。
+   top表示从上到下渐变颜色，#FFF是起始颜色，#000是终止颜色，中间的颜色可以选，50%表示#FFF占据背景色一般然后在进行渐变
+
+3、只有普通文档流中块框的垂直外边距才会发生外边距合并。行内框、浮动框或绝对定位之间的外边距不会合并。   
