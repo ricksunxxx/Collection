@@ -69,3 +69,11 @@
    4）box-shadow直接在img元素上使用inset是没有任何效果的，可以利用img的父层容器或者父容器的:after伪元素实现
    5）当给同一个元素使用多个阴影属性时，需要注意它的顺序，最先写的阴影将显示在最顶层。
    6）整个层级：边框>内阴影>背景图片>背景颜色>外阴影
+
+   border-radius:10px / 20px 
+   表示圆角水平半径是10px,垂直半径是20px。
+   border-radius:10px 20px 
+   表示border-top-left-radius 和 border-bottom-right-radius是10px,其余角是20px,跟border一样遵循TRBL原则。
+
+   background:-webkit-linear-gradient(top,#FFF 50%,#999,green ,#000);
+   top表示从上到下渐变颜色，#FFF是起始颜色，#000是终止颜色，中间的颜色可以选，50%表示#FFF占据背景色一般然后在进行渐变。
