@@ -164,5 +164,16 @@
 　　});
     
     AMD也可以写出简洁的commonJS的形式，但是本质上，所有依赖还是会前置执行了，本质还是AMD。
+6、兼容问题
+   1）IE8不支持字符串的trim、indexOf函数
+   2）IE8基本上不支持CSS3属性border-radius、box-shadow、text-shadow
+   3）IE8不支持这些CSS3选择器：
+      :last-child 、:nth-child(n)、:first-of-type、:last-of-type
+   4）color: green\0;只有IE8才能识别。
+   5）opacity属性，在IE8要用alpha通道才能实现，例如
+      filter: alpha(opacity=20);相当于 opacity:0.2
+   6）IE hack和IE条件注释
+   7）ie8css3圆角的实现使用PIE.htc，behavior: url(../../../public/css/PIE.htc);
+      注意：这个路径是html相对于PIE的路径
 
 
