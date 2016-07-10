@@ -141,3 +141,28 @@
         a.doSomething();
         b.doSomething();
       });     
+5、AMD && requireJs
+   AMD规范只定义了一个函数 define 。
+   define(id?, dependencies?, factory);
+   require()函数接受两个参数。第一个参数是一个数组，第二个参数是一个回调函数。
+   require.config()使用paths指定路径，可以设置baseUrl，这是全局的，后面如果加载的模块没有指定路径，
+   默认取baseUrl。
+   shim用来加载非规范的模块。
+   AMD是依赖前置，所有的依赖全部加载完了，才会执行回调
+   // math.js
+　　define(function (){
+　　　　var add = function (x,y){
+　　　　　　return x+y;
+　　　　};
+　　　　return {
+　　　　　　add: add
+　　　　};
+　　});
+
+   require(['math'], function (math){
+　　　　alert(math.add(1,1));
+　　});
+    
+    AMD也可以写出简洁的commonJS的形式，但是本质上，所有依赖还是会前置执行了，本质还是AMD。
+
+
