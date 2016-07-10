@@ -79,3 +79,65 @@
    top表示从上到下渐变颜色，#FFF是起始颜色，#000是终止颜色，中间的颜色可以选，50%表示#FFF占据背景色一般然后在进行渐变
 
 3、只有普通文档流中块框的垂直外边距才会发生外边距合并。行内框、浮动框或绝对定位之间的外边距不会合并。   
+
+4、CMD
+   1)在 CMD 规范中，一个模块就是一个文件，define是一个全局函数，用来定义模块。
+   2)define 接受 factory 参数，factory 可以是一个函数，也可以是一个对象或字符串。
+   3)factory 为函数时，表示是模块的构造方法，默认会传入三个参数：require、exports 和 module
+     define(function(require, exports, module) {
+           // 模块代码
+     });
+   4)define(id?, deps?, factory)
+     注意：带 id 和 deps 参数的 define 用法不属于 CMD 规范，而属于 Modules/Transport 规范。
+   5)模块 factory 构造方法的第一个参数必须命名为 require
+   6)require 的参数值必须是字符串直接量
+   7)require.async 方法用来在模块内部异步加载模块，并在加载完成后执行指定回调。callback 参数可选
+     define(function(require, exports, module) {
+        // 异步加载一个模块，在加载完成时，执行回调
+        require.async('./b', function(b) {
+        b.doSomething();
+      });
+
+       // 异步加载多个模块，在加载完成时，执行回调
+       require.async(['./c', './d'], function(c, d) {
+       c.doSomething();
+       d.doSomething();
+      });
+
+    });
+    require.async 一般用来加载可延迟异步加载的模块。
+   8)传给 factory 构造方法的 exports 参数是 module.exports 对象的一个引用
+     向外提供接口可以用 module.exports = {} 或者 exports.XXX = XXX 或者 return {}
+     不能这样用：
+     exports = {} 、module.exports = function(){}、return function(){}
+   9)对 module.exports 的赋值需要同步执行，不能放在回调函数里
+   10)exports 仅仅是 module.exports 的一个引用。在 factory 内部给 exports 重新赋值时，并不会改变
+     module.exports 的值。因此给 exports 赋值是无效的，不能用来更改模块接口
+  11)用seajs.config进行配置:
+      seajs.config({
+        // 设置路径，方便跨目录调用
+        paths: {
+          'arale': 'https://a.alipayobjects.com/arale',
+          'jquery': 'https://a.alipayobjects.com/jquery'
+        },
+        
+        // 设置别名，方便调用
+        alias: {
+          'class': 'arale/class/1.0.0/class',
+          'jquery': 'jquery/jquery/1.10.1/jquery'
+        }
+      });  
+   12)seajs.use用来在页面中加载一个或多个模块: 
+      // 加载一个模块
+      seajs.use('./a');
+
+      // 加载一个模块，在加载完成时，执行回调
+      seajs.use('./a', function(a) {
+        a.doSomething();
+      });
+
+      // 加载多个模块，在加载完成时，执行回调
+      seajs.use(['./a', './b'], function(a, b) {
+        a.doSomething();
+        b.doSomething();
+      });     
