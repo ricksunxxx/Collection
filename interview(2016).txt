@@ -221,7 +221,7 @@
 		}
    6）继承
       sass用.selector {@extend .block;}，sass会形成分组
-      less用.selector {.block;}，less直接把继承的样式插入代码中，略弱
+      less用.selector {.block;}，less直接把继承的样式插入代码中
    7）导入
       导入文件中定义的混入、变量等信息也将会被引入到主样式文件中，因此需要避免它们互相冲突。
       @ import "reset.css";
