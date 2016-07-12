@@ -193,3 +193,44 @@
    requirejs和seajs有什么区别
    性能优化有哪些可以做的
 
+8、sass和less的区别
+   1）两者都是CSS的预处理器，方便我们编写css
+   2）Sass 和 Less 都使用的是标准的 CSS 语法
+   3）Sass 的变量必须是 $ 开始， Less 的变量名使用 @ 符号开始
+   4）嵌套使得父子节点关系一目了然，嵌套语法都一样
+   5）对于混合（mixin）（类似函数功能）
+      sass语法是
+		@mixin border-radius($values) {
+		  -webkit-border-radius: $values;
+		     -moz-border-radius: $values;
+		          border-radius: $values;
+		}
+		  
+		div {
+		  @ include border-radius(10px);
+		}
+      less语法是
+		.border-radius(@values) {
+		  -webkit-border-radius: @values;
+		     -moz-border-radius: @values;
+		          border-radius: @values;
+		}
+		  
+		div {
+		  .border-radius(10px);
+		}
+   6）继承
+      sass用.selector {@extend .block;}，sass会形成分组
+      less用.selector {.block;}，less直接把继承的样式插入代码中，略弱
+   7）导入
+      导入文件中定义的混入、变量等信息也将会被引入到主样式文件中，因此需要避免它们互相冲突。
+      @ import "reset.css";
+   8）Sass 有两种语法
+      以.scss 扩展名，能理解大多数 CSS hacks 以及浏览器专属语法，例如IE 古老的 filter 语法。
+      以.sass 扩展名，不使用花括号，而是通过缩排的方式来表达选择符的嵌套层级，而且也不使用分号，
+      而是用换行符来分隔属性
+    9）less的混合和继承有点类似，不同的是混合用的是自定义的名字，还可以传参数，继承则用的是选择器，没有参数可选
+    10）都带有函数，比如颜色函数lighten(@base, 25%)
+
+
+
