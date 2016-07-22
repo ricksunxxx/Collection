@@ -279,3 +279,39 @@
     web安全问题
     css文件会阻塞吗
     脚本会阻塞吗，为什么，依然放在头部，怎么做才能不阻塞
+
+12、冒泡、捕获是相对于目标元素而言的
+    document.body.addEventListener("click", function(event){
+      alert(event.eventPhase);  
+    }, true); 
+
+    点击body元素，显示2，表示事件发生在目标上（下面两种写法对这个不影响）。
+    点击body的后代元素，显示1，表示事件发生是在捕获阶段，因为第三个参数为true。
+    最后一个参数默认是false，true表示事件句柄在捕获阶段执行，false表示事件句柄在冒泡阶段执行。
+
+    document.body.addEventListener("click", function(event){
+      alert(event.eventPhase);  //这个时候，如果点击body的后代元素，则显示3，表示事件在冒泡阶段执行了。
+    }, false); 
+
+    对于另外一种写法，则默认是冒泡阶段执行：
+    document.body.onclick = function(event){
+      alert(event.eventPhase);  //点击body的子元素，显示3
+    }    
+
+    因为IE不支持事件捕获，所以建议统一在冒泡阶段处理事件句柄。
+    另外，IE8浏览器不支持addEventListener()，可以使用attachEvent()。
+
+    事件类型没有on，false 表示在事件第三阶段（冒泡）触发，true表示在事件第一阶段（捕获）触发。 如果handle是同一个方法，只执行一次。解绑事件，参数和绑定一样
+    ele.addEventListener('click', function(){ }, false);  
+    ele.removeEventListener(event.type, handle, boolean); 
+
+    ele.attachEvent('onclick', function(){ }); //IE8-
+    ele.detachEvent("onclick", function(){ });//IE8-
+
+    event.preventDefault( );         
+    event.returnValue = false;       //阻止默认事件 IE8-   
+
+    event.stopPropagation( );    // 阻止事件的进一步传播，包括（冒泡，捕获），无参数
+    event.cancelBubble = true;   // true 为阻止冒泡  IE8-
+
+    原生js写事件委托的时候，IE是没有e.target，有e.srcElement
