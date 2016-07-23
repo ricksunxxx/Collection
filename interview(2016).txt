@@ -338,4 +338,7 @@
        Access-Control-Request-Method: GET, POST
        Access-Control-Allow-Headers: Content-Type, Authorization, Accept, Range, Origin
        Access-Control-Expose-Headers: Content-Range
-       Access-Control-Max-Age: 3600       
+       Access-Control-Max-Age: 3600   
+
+14、css同样会阻塞后面js的执行，其会与后面的js同步下载，但js必须等css执行完才能执行，因为js可能会
+    请求样式的信息，现在很多浏览器都有预取功能，会提前把后面的资源下载下来但不会执行。  
