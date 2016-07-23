@@ -315,3 +315,27 @@
     event.cancelBubble = true;   // true 为阻止冒泡  IE8-
 
     原生js写事件委托的时候，IE是没有e.target，有e.srcElement
+
+13、同源策略与跨域
+    协议、域名、端口相同即视为同源（同域） 
+    不同域的客户端脚本在没明确授权的情况下，不能读写对方的资源。这种安全限制称为同源策略。
+    为什么要有同源策略呢：
+    1）这是浏览器的对于安全性而进行的规定。
+    2）但是出于方便性，这个策略没有很严格执行，比如img，script，link标签就可以跨域获取资源，
+       但只是获取，而不能对对方的资源进行修改。
+    3）如果没有同源策略，所有网站都可以互相ajax，都可以轻松获取别人的cookie，安全完全没有保障了。
+
+    对于跨域
+    1）如果互相访问的域属于二级子域，可以通过设置document.domain为一级域名来进行跨域通讯。
+    2）window.name，一个页面内的所有iframe都有权限读写
+    3）使用jsonp来实现，这不是通过XHR对象来实现的，而是通过创建动态脚本标签来实现的，但是
+       服务器也要做响应的设置，把数据包裹在回调函数体内返回给客户端。只能get请求 。
+    4）通过html5中的方法postMessage来实现
+    5）cors跨域资源共享，通过在HTTP Header中加入扩展字段，服务器在相应网页头部加入字段表示允许访问
+       的domain和HTTP method，客户端检查自己的域是否在允许列表中，决定是否处理响应。
+       例如在服务器端设置：
+       Access-Control-Allow-Origin: example.com
+       Access-Control-Request-Method: GET, POST
+       Access-Control-Allow-Headers: Content-Type, Authorization, Accept, Range, Origin
+       Access-Control-Expose-Headers: Content-Range
+       Access-Control-Max-Age: 3600       
