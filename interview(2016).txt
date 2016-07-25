@@ -327,7 +327,7 @@
 
     对于跨域
     1）如果互相访问的域属于二级子域，可以通过设置document.domain为一级域名来进行跨域通讯。
-    2）window.name，一个页面内的所有iframe都有权限读写
+    2）window.name，缺点是必须监听子窗口window.name属性的变化，影响网页性能。
     3）使用jsonp来实现，这不是通过XHR对象来实现的，而是通过创建动态脚本标签来实现的，但是
        服务器也要做响应的设置，把数据包裹在回调函数体内返回给客户端。只能get请求 。
     4）通过html5中的方法postMessage来实现
@@ -339,6 +339,10 @@
        Access-Control-Allow-Headers: Content-Type, Authorization, Accept, Range, Origin
        Access-Control-Expose-Headers: Content-Range
        Access-Control-Max-Age: 3600   
+    6）通过url中的片段标识符，就是#后面的内容，页面不会刷新，然后另一个窗口通过监听hashchange事件
+    7）WebSocket，一种通信协议，该协议不实行同源政策，只要服务器支持，就可以通过它进行跨源通信。
+       请求报文中Origin字段指定服务器是否允许本次通讯。
+    
 
 14、css同样会阻塞后面js的执行，其会与后面的js同步下载，但js必须等css执行完才能执行，因为js可能会
     请求样式的信息，现在很多浏览器都有预取功能，会提前把后面的资源下载下来但不会执行。  
