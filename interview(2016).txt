@@ -386,7 +386,15 @@
       3）读取伪元素内容和属性
           var test = document.querySelector('#test');
           var result = window.getComputedStyle(test, ':before').content;
-          var color = window.getComputedStyle(test, ':before').color;         
+          var color = window.getComputedStyle(test, ':before').color;      
+      4）DOM操作
+         El.innerHTML += '<div>new add</div>'; //相当于jq中的append方法，作为最后一个子元素加入
+         El.innerHTML  = '<div>new add</div>' + El.innerHTML;//作为第一个子元素加入
+
+         var sub = document.createElement('div');
+         var text = document.createTextNode('this is text!');
+         sub.appendChild(text);
+         El.appendChild(sub); 
 
 17、多行文字居中
      html：<p><span>多行文字居中</span></p>
