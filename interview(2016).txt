@@ -379,8 +379,14 @@
          El.classList.add('myClass');         //增加类myClass
          El.className += ' myClass';          //增加类myClass,注意字符串前面的空格
          El.classList.remove('myClass');      //删除类myClass
-         El.style.background = "#FF0000";     //单独修改某个内联样式
+         El.style.background = "#FF0000";     //单独修改某个内联样式，类似font-size要写成fontSize
+                                              //如果是javascript保留字，如float则要写出cssFloat
          El.style.cssText += 'color:red;padding-top:50px;';   //批量增加(可能覆盖)内联样式
+
+      3）读取伪元素内容和属性
+          var test = document.querySelector('#test');
+          var result = window.getComputedStyle(test, ':before').content;
+          var color = window.getComputedStyle(test, ':before').color;         
 
 17、多行文字居中
      html：<p><span>多行文字居中</span></p>
