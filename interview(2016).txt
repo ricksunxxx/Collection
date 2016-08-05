@@ -428,4 +428,4 @@
     'abcabc'.match(/a.*c/);   //匹配'abcabc'
     'abcabc'.match(/a.*?c/);  //匹配'abc'
 21、数据驱动和DOM驱动的区别
-22、
+22、border:0;和border:none;的区别
