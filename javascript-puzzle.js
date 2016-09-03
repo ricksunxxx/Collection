@@ -242,3 +242,15 @@ function bar(a) {
       所以，foo('hello')返回'hello';而对于如果var a = 'bye',相当于a = 'bye'(此时a作为参数，其实已经定义了)
       这样就会改变参数的值，故bar('hello')返回'bye'。
 */
+
+//********************第15题********************************************************************************
+if ('http://giftwrapped.com/picture.jpg'.match('.gif')) {
+    'a gif file'
+} else {
+    'not a gif file'
+} //'a gif file'
+/*
+解释：
+    match函数要求输入一个正则，如果不是正则，则自动转换成正则，所以match的参数就是new RegExp('.gif') ,
+    其实也就相当于/.gif/  ,匹配字符串中的字符'/gif'，所以match的结果为true。 
+*/
