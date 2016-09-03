@@ -195,8 +195,9 @@ x(); //window
 */
 
 //********************第13题********************************************************************************
-var a = {}, b = Object.prototype;
-[a.prototype === b, Object.getPrototypeOf(a) === b];//[false, true]
+var a = {},
+    b = Object.prototype;
+[a.prototype === b, Object.getPrototypeOf(a) === b]; //[false, true]
 /*
   解释：
   除开undefined和null没有prototype属性外，其他数据类型都有prototype属性，但，只有函数的prototype属性返回
@@ -222,4 +223,22 @@ var a = {}, b = Object.prototype;
   a.prototype === Object.getPrototypeOf(a);//false
   a.prototype === Object.getPrototypeOf(new a());//ture
 
-*/  
+*/
+
+//********************第14题********************************************************************************
+function foo(a) {
+    var a;
+    return a;
+}
+
+function bar(a) {
+    var a = 'bye';
+    return a;
+}
+[foo('hello'), bar('hello')]; //["hello", "bye"]
+
+/*
+解释：a作为参数，相当于已经做了变量声明，如果再用var a，不会改变a的值，直接在控制台进行测试也是同样的结果
+      所以，foo('hello')返回'hello';而对于如果var a = 'bye',相当于a = 'bye'(此时a作为参数，其实已经定义了)
+      这样就会改变参数的值，故bar('hello')返回'bye'。
+*/
