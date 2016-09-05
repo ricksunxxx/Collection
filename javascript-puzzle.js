@@ -265,4 +265,11 @@ var a = new Date("2014-03-19"),
     b = 'Sat Apr 19 2014 00:00:00 GMT+0800'
     a.getDay() = 3    b.getDay() = 6
     a.getMonth() = 2   b.getMonth() = 3
+    另外：
+    getDay()是获取一周的第几天，除开星期天index是0，其它几天则跟index是对应的，即星期一对应index为1，
+    其他以此类推。
+    getMonth()跟星期几一样从index等于0开始算，所以1月就对应index为0.
+    getDate()是获取一个月的第几天，a.getDate() === b.getDate() === 19
+    getFullYear()获取年份，a.getFullYear() === b.getFullYear() === 2004
+    注意：以上方法所得值都是Number类型。
 */
