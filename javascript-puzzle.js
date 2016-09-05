@@ -254,3 +254,15 @@ if ('http://giftwrapped.com/picture.jpg'.match('.gif')) {
     match函数要求输入一个正则，如果不是正则，则自动转换成正则，所以match的参数就是new RegExp('.gif') ,
     其实也就相当于/.gif/  ,匹配字符串中的字符'/gif'，所以match的结果为true。 
 */
+
+//********************第16题********************************************************************************
+var a = new Date("2014-03-19"),
+    b = new Date(2014, 03, 19);
+[a.getDay() === b.getDay(), a.getMonth() === b.getMonth()] //[false, false]
+/*
+解释：
+    a = 'Wed Mar 19 2014 08:00:00 GMT+0800'
+    b = 'Sat Apr 19 2014 00:00:00 GMT+0800'
+    a.getDay() = 3    b.getDay() = 6
+    a.getMonth() = 2   b.getMonth() = 3
+*/
