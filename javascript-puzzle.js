@@ -273,3 +273,23 @@ var a = new Date("2014-03-19"),
     getFullYear()获取年份，a.getFullYear() === b.getFullYear() === 2004
     注意：以上方法所得值都是Number类型。
 */
+
+//********************第17题********************************************************************************
+function captureOne(re, str) {
+    var match = re.exec(str);
+    return match && match[1];
+}
+var numRe = /num=(\d+)/ig,
+    wordRe = /word=(\w+)/i,
+    a1 = captureOne(numRe, "num=1"),
+    a2 = captureOne(wordRe, "word=1"),
+    a3 = captureOne(numRe, "NUM=2"),
+    a4 = captureOne(wordRe, "WORD=2");
+[a1 === a2, a3 === a4]; //[true, false]
+/*
+解释：
+    a1='1'
+    a2='1'
+    a3=null
+    a4='1'
+*/
