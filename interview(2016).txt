@@ -455,3 +455,5 @@
 31、原生js原理学习
 32、web app reset.css
 33、响应式设计之css媒体查询和JS动态计算
+34、promise的原理和设计
+35、H5调取相机或相册的API
