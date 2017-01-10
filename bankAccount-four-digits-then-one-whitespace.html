@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PC端银行卡账号每四位数字后面插入一个空格，关键点在光标的处理</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<input type="text" id="bankAccount">
+<script type="text/javascript">
+	var bankAccountDom = document.querySelector('#bankAccount');
+
+	bankAccount.addEventListener('keyup',function (e) {
+		if (e.which >= 48 && e.which <= 58 || e.which >= 96 && e.which <= 105 ) {
+			this.value = this.value.replace(/\s/g,'').replace(/(\d{4})/g,'$1 ');
+			this.selectionEnd = this.value.length;
+		} else{
+			this.value = this.value.slice(0,-1);
+		}
+	},false);
+</script>
+</body>
+</html>
