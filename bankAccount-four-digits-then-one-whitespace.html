@@ -11,7 +11,7 @@
 
 	bankAccount.addEventListener('keyup',function (e) {
 		if (e.which >= 48 && e.which <= 58 || e.which >= 96 && e.which <= 105 ) {
-			this.value = this.value.replace(/\s/g,'').replace(/(\d{4})/g,'$1 ');
+			this.value = this.value.replace(/\s/g,'').replace(/(\d{4})/g,'$1 ');//去掉所有空格再在合适的位置加入空格
 			this.selectionEnd = this.value.length;
 		} else{
 			this.value = this.value.slice(0,-1);
