@@ -2,9 +2,8 @@
 
 
 ## 1、ES5有哪些新变化
-   1.增加严格模式
-   
-   2.提供一个全局的JSON对象（JSON.stringify 和 JSON.parse）
+   .1增加严格模式
+   .2提供一个全局的JSON对象（JSON.stringify 和 JSON.parse）
    3）Object上的构造器增加了很多有用的方法，对对象的属性有了更好的控制（可读、可枚举、可删除、可配置）。
    	    Object.getPrototypeOf
 		Object.getOwnPropertyDescriptor
