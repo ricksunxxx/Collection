@@ -4,8 +4,7 @@
 ## 1、ES5有哪些新变化
    1. 增加严格模式
    2. 提供一个全局的JSON对象（JSON.stringify 和 JSON.parse）
-   3. Object上的构造器
-   增加了很多有用的方法，对对象的属性有了更好的控制（可读、可枚举、可删除、可配置）  
+   3. Object上的构造器增加了很多有用的方法，对对象的属性有了更好的控制（可读、可枚举、可删除、可配置)
    	        * Object.getPrototypeOf
 		* Object.getOwnPropertyDescriptor
 		* Object.getOwnPropertyNames
@@ -19,9 +18,7 @@
 		* Object.isFrozen
 		* Object.isExtensible
 		* Object.keys
-   4. 数组原型增加了实用的方法
-   其中Array.isArray直接加在构造器上，不是原型,它使用是对象的内在的[[Class]]属性来判断，  
-   跟Object.prototype.toString.apply(value) === '[object Array]'的原理是一样的。   
+   4. 数组原型增加了实用的方法其中Array.isArray直接加在构造器上，不是原型,它使用是对象的内在的[[Class]]属性来判断,跟Object.prototype.toString.apply(value) === '[object Array]'的原理是一样的。   
 		* Array.prototype.indexOf
 		* Array.prototype.lastIndexOf
 		* Array.prototype.every
