@@ -26,6 +26,7 @@
    其中Array.isArray直接加在构造器上，不是原型,它使用是对象的内在的[[Class]]属性来判断，
    
    跟Object.prototype.toString.apply(value) === '[object Array]'的原理是一样的。
+   
 		* Array.prototype.indexOf
 		* Array.prototype.lastIndexOf
 		* Array.prototype.every
@@ -35,13 +36,23 @@
 		* Array.prototype.filter
 		* Array.prototype.reduce
 		* Array.prototype.reduceRight
+		
 	5. Function.prototype.bind 使用它我们可以借用其他函数作用链执行一个函数		
 
 ## 2、严格模式有什么用
    1. IE9及以下不支持严格模式，IE10开始支持严格模式。
    2. 严格模式一般出现在全局，也可以出现在函数内，但函数的严格模式与全局的严格模式是无关的，互相独立的。
    3. 严格模式主要是让代码更加严谨，减少出错的可能，以下在严格模式下会报错或行为：
-      未声明变量进行赋值操作、改写只可读的属性、对不可扩展的对象进行属性添加、对一个不可配置的对象进行删除操作、函数入参重名、变量名或函数名使用关键字、this不再指向window、with语句不允许、不可更改arguments对象的值、arguments.callee不允许使用。
+      * 未声明变量进行赋值操作、
+      * 改写只可读的属性
+      * 对不可扩展的对象进行属性添加
+      * 对一个不可配置的对象进行删除操作
+      * 函数入参重名
+      * 变量名或函数名使用关键字
+      * this不再指向window
+      * with语句不允许
+      * 不可更改arguments对象的值
+      * arguments.callee不允许使用。
 ## 3、ES6有哪些新特性
    1. 变量声明const和let，作用域在{}开始起作用了
    2. 模板字符串，反单引号来作为标识，${}内部访问变量，也增加很多ES6的字符串方法，常用有includes、startsWith、endsWith、repeat
