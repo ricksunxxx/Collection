@@ -5,8 +5,8 @@
    1. 增加严格模式
    2. 提供一个全局的JSON对象（JSON.stringify 和 JSON.parse）
    3. Object上的构造器
-   增加了很多有用的方法，对对象的属性有了更好的控制（可读、可枚举、可删除、可配置）
-   	    	* Object.getPrototypeOf
+   增加了很多有用的方法，对对象的属性有了更好的控制（可读、可枚举、可删除、可配置）  
+   	        * Object.getPrototypeOf
 		* Object.getOwnPropertyDescriptor
 		* Object.getOwnPropertyNames
 		* Object.create
@@ -37,7 +37,7 @@
    1. IE9及以下不支持严格模式，IE10开始支持严格模式。
    2. 严格模式一般出现在全局，也可以出现在函数内，但函数的严格模式与全局的严格模式是无关的，互相独立的。
    3. 严格模式主要是让代码更加严谨，减少出错的可能，以下在严格模式下会报错或行为：
-      * 未声明变量进行赋值操作、
+      * 未声明变量进行赋值操作
       * 改写只可读的属性
       * 对不可扩展的对象进行属性添加
       * 对一个不可配置的对象进行删除操作
@@ -46,7 +46,7 @@
       * this不再指向window
       * with语句不允许
       * 不可更改arguments对象的值
-      * arguments.callee不允许使用。
+      * arguments.callee不允许使用
 ## 3、ES6有哪些新特性
    1. 变量声明const和let，作用域在{}开始起作用了
    2. 模板字符串，反单引号来作为标识，${}内部访问变量，也增加很多ES6的字符串方法，常用有includes、startsWith、endsWith、repeat
