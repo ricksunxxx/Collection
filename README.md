@@ -88,8 +88,7 @@
       * 使用BFC避免文字环绕
       * BFC不会重叠浮动元素      
 
-### 6、@font-face是什么
-      ```
+### 6、@font-face是什么      
          @font-face {
            font-family: 'example';
            src: url(example.ttf);
@@ -99,8 +98,7 @@
            font-variant: small-caps;
            font-stretch: expanded;
            font-feature-settings："liga1" on;
-         }
-      ```           
+         }          
   * 字体格式有这些：TrueType、Embedded Open Type 、OpenType、WOFF 、SVG
   * TrueType：Windows和Mac系统最常用的字体格式，这类字体和矢量字体一样可以随意缩放、旋转而不必担心会出现锯齿
   * EOT（Embedded Open Type）是嵌入式字体，是微软开发的技术
