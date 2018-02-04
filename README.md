@@ -127,17 +127,17 @@
   4. SVG中提供了很多基础元素可以用来绘制基础的形状，譬如矩形、圆形、椭圆、多边形、折线、线条、路径等，同时可以将这些基础形状组合绘制出复杂的图像
   5. 有4种常用的方式加载SVG  
         * img标签
-           ```<img src="tw93.svg" alt="Hello SVG" height="65" width="68"> ```  
+           ```<img src="tw93.svg" alt="Hello SVG" height="65" width="68">```           
         * CSS background   
             ```.logo {
               background: url("data:image/svg+xml;base64,[data]");
-            } ```  
+            }```
         * 通过object
            ```<object type="image/svg+xml" data="data:image/svg+xml;base64,[data]">
               fallback
-            </object>```    
+            </object>``` 
         * 直接内嵌到HTML
           ```<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 65">
               <path fill="#1A374D" d="M42 27v-20c0-3.7-3.3-7-7-7s-7 3.3-7 7v21l12 15-7 15.7c14.5 13.9 35 2.8 35-13.7 0-13.3-13.4-21.8-26-18zm6 25c-3.9 0-7-3.1-7-7s3.1-7 7-7 7 3.1 7 7-3.1 7-7 7z"/>
               <path d="M14 27v-20c0-3.7-3.3-7-7-7s-7 3.3-7 7v41c0 8.2 9.2 17 20 17s20-9.2 20-20c0-13.3-13.4-21.8-26-18zm6 25c-3.9 0-7-3.1-7-7s3.1-7 7-7 7 3.1 7 7-3.1 7-7 7z"/>
-            </svg>```                              
+            </svg>```                        
