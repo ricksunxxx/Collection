@@ -1,6 +1,6 @@
 # 前端基础知识汇总
 
-### 1、ES5有哪些新变化
+## 1、ES5有哪些新变化
    1. 增加严格模式
    2. 提供一个全局的JSON对象（JSON.stringify 和 JSON.parse）
    3. Object上的构造器增加了很多有用的方法，对对象的属性有了更好的控制（可读、可枚举、可删除、可配置)。
@@ -29,7 +29,7 @@
     * Array.prototype.reduceRight   
     5. Function.prototype.bind 使用它我们可以借用其他函数作用链执行一个函数   
 
-### 2、严格模式有什么用
+## 2、严格模式有什么用
    1. IE9及以下不支持严格模式，IE10开始支持严格模式。
    2. 严格模式一般出现在全局，也可以出现在函数内，但函数的严格模式与全局的严格模式是无关的，互相独立的。
    3. 严格模式主要是让代码更加严谨，减少出错的可能，以下在严格模式下会报错或行为：
@@ -44,7 +44,7 @@
       * 不可更改arguments对象的值
       * arguments.callee不允许使用
 
-### 3、ES6有哪些新特性
+## 3、ES6有哪些新特性
    1. 变量声明const和let，作用域在{}开始起作用了
    2. 模板字符串，反单引号来作为标识，${}内部访问变量，也增加很多ES6的字符串方法，常用有includes、startsWith、endsWith、repeat
    3. 为函数参数提供了默认值，提供rest参数
@@ -57,7 +57,7 @@
    10. Generators，生成器函数也是一种函数，最直观的表现就是比普通的function多了个星号*，在其函数体内可以使用yield关键字,有意思的是函数会在每个yield后暂停，可调用next方法进行唤醒。
    11. class、extends、super，在constructor里调用super(),因为子类没有自己的this对象，要继承父类的this对象
    
-### 4、怎么理解Promise  
+## 4、怎么理解Promise  
    1. 异步编程的一种解决方案
    2. ES6 将其写进了语言标准，原生提供了Promise对象
    3. 从语法上说，Promise 是一个对象，从它可以获取异步操作的消息
@@ -73,7 +73,7 @@
    13. Promise的优势在于，可以在then方法中继续写Promise对象并返回，然后继续调用then来进行回调操作
    14. then中的回调采用异步的方式处理是为了保证代码执行的一致性
    
-### 5、怎么理解BFC
+## 5、怎么理解BFC
    1. Block Fromatting Context
    2. BFC是一个独立的布局环境，其中的元素布局是不受外界的影响，并且在一个BFC中，块盒与行盒（行盒由一行中所有的内联元素所组成）都会垂直的沿着其父元素的边框排列
    3. 创建BFC，只需要满足这些条件之一即可：
@@ -88,7 +88,7 @@
       * 使用BFC避免文字环绕
       * BFC不会重叠浮动元素      
 
-### 6、@font-face是什么      
+## 6、@font-face是什么      
          @font-face {
            font-family: 'example';
            src: url(example.ttf);
@@ -111,7 +111,7 @@
   10. IE 8 以及更早的版本不支持新的 @font-face 规则
   11. IE 9+ 支持新的 @font-face 规则，但是仅支持 .eot 类型的字体 (Embedded OpenType)
 
-### 7、SVG是什么
+## 7、SVG是什么
   1. SVG（Scalable Vector Graphics）是可缩放矢量图形的缩写，基于可扩展标记语言XML来描述二维矢量图形的一种图形格式，由W3C制定，是一个开放标准
   2. 优点： 
         * 和PNG、GIF比较起来，文件体积更小，且可压缩性强；
@@ -127,20 +127,24 @@
   4. SVG中提供了很多基础元素可以用来绘制基础的形状，譬如矩形、圆形、椭圆、多边形、折线、线条、路径等，同时可以将这些基础形状组合绘制出复杂的图像
   5. 有4种常用的方式加载SVG  
         * img标签
-           ```<img src="tw93.svg" alt="Hello SVG" height="65" width="68"> 
+           ``` 
+           <img src="tw93.svg" alt="Hello SVG" height="65" width="68"> 
            ```       
         * CSS background   
-            ```.logo {
+            ```
+            .logo {
               background: url("data:image/svg+xml;base64,[data]");
             }
             ```
         * 通过object
-           ```<object type="image/svg+xml" data="data:image/svg+xml;base64,[data]">
+           ```
+           <object type="image/svg+xml" data="data:image/svg+xml;base64,[data]">
               fallback
             </object>
             ```
         * 直接内嵌到HTML
-            ```svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 65">
+            ```
+            svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 65">
               <path fill="#1A374D" d="M42 27v-20c0-3.7-3.3-7-7-7s-7 3.3-7 7v21l12 15-7 15.7c14.5 13.9 35 2.8 35-13.7 0-13.3-13.4-21.8-26-18zm6 25c-3.9 0-7-3.1-7-7s3.1-7 7-7 7 3.1 7 7-3.1 7-7 7z"/>
               <path d="M14 27v-20c0-3.7-3.3-7-7-7s-7 3.3-7 7v41c0 8.2 9.2 17 20 17s20-9.2 20-20c0-13.3-13.4-21.8-26-18zm6 25c-3.9 0-7-3.1-7-7s3.1-7 7-7 7 3.1 7 7-3.1 7-7 7z"/>
             </svg>
