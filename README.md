@@ -177,6 +177,7 @@
      * 401 没有认证，需要登陆验证
      * 500 内部服务器错误，如业务代码出现了异常没有捕获，被tomcat捕获了，就会返回500错误，而当服务彻底挂了，连返回都没有的时候，那么就是502了
      * 502 Bad Gateway 网关错误  收到请求了，但请求没有给到业务服务
+     * 503 Service unavailable 服务不可用
      * 504 Gateway Timeout 网关超时  通常是因为服务处理请求太久，导致超时
   7. 请求的编码方式
      * application/www-x-form-urlencoded 最常用的一种，适用于GET/POST等
