@@ -4,30 +4,30 @@
    1. 增加严格模式
    2. 提供一个全局的JSON对象（JSON.stringify 和 JSON.parse）
    3. Object上的构造器增加了很多有用的方法，对对象的属性有了更好的控制（可读、可枚举、可删除、可配置)。
-   	    * Object.getPrototypeOf
-		* Object.getOwnPropertyDescriptor
-		* Object.getOwnPropertyNames
-		* Object.create
-		* Object.defineProperty
-		* Object.defineProperties
-		* Object.seal
-		* Object.freeze
-		* Object.preventExtensions
-		* Object.isSealed
-		* Object.isFrozen
-		* Object.isExtensible
-		* Object.keys
+        * Object.getPrototypeOf
+    * Object.getOwnPropertyDescriptor
+    * Object.getOwnPropertyNames
+    * Object.create
+    * Object.defineProperty
+    * Object.defineProperties
+    * Object.seal
+    * Object.freeze
+    * Object.preventExtensions
+    * Object.isSealed
+    * Object.isFrozen
+    * Object.isExtensible
+    * Object.keys
    4. 数组原型增加了实用的方法其中Array.isArray直接加在构造器上，不是原型,它使用是对象的内在的[[Class]]属性来判断,跟Object.prototype.toString.apply(value) === '[object Array]'的原理是一样的。   
-		* Array.prototype.indexOf
-		* Array.prototype.lastIndexOf
-		* Array.prototype.every
-		* Array.prototype.some
-		* Array.prototype.forEach
-		* Array.prototype.map
-		* Array.prototype.filter
-		* Array.prototype.reduce
-		* Array.prototype.reduceRight		
-    5. Function.prototype.bind 使用它我们可以借用其他函数作用链执行一个函数		
+    * Array.prototype.indexOf
+    * Array.prototype.lastIndexOf
+    * Array.prototype.every
+    * Array.prototype.some
+    * Array.prototype.forEach
+    * Array.prototype.map
+    * Array.prototype.filter
+    * Array.prototype.reduce
+    * Array.prototype.reduceRight   
+    5. Function.prototype.bind 使用它我们可以借用其他函数作用链执行一个函数   
 
 ### 2、严格模式有什么用
    1. IE9及以下不支持严格模式，IE10开始支持严格模式。
