@@ -291,4 +291,6 @@
 1. Vue.js的响应式原理依赖于Object.defineProperty，这也是Vue.js不支持IE8以及更低版本浏览器的原因。Vue通过设定对象属性的 setter/getter方法来监听数据的变化，通过getter进行依赖收集，而每个setter方法就是一个观察者，在数据变更的时候通知订阅者更新视图。
 2. 其实Watcher与data可以看成一种被绑定的状态（实际上是data的闭包中有一个Deps订阅着，在修改的时候会通知所有的Watcher观察者），在data发生变化的时候会触发它的setter，setter通知Watcher，Watcher进行回调通知组件重新渲染的函数，之后根据diff算法来决定是否发生视图的更新。
 
-## 48、VUE实例事件接口和浏览器的事件接口有何不同
+## 49、VUE实例事件接口和浏览器的事件接口有何不同
+
+## 50、
