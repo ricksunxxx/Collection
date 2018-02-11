@@ -384,7 +384,7 @@
   3. 事件委托时，可以用 event.target || event.srcElement 来获得事件目标
   4. 不同绑定方式，不同的执行顺序
 
-  ``` 
+```
     <a href="javascript:alert(1)" onclick="alert(2)" id="link">click me</a>           
       var link = document.getElementById('link');
       $('#link').on('click', function () { alert(3); });
@@ -400,7 +400,7 @@
       });
 
       link.onclick = function () { alert(7); }      
-  ```    
+```   
        上面会输出：7，3，5，4，6，1
        * DOM的属性onclick会覆盖HTML中的onclick，优先级最高
        * javascript:协议优先级最低
