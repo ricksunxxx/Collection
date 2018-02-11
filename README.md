@@ -369,6 +369,7 @@
    * 使用DOM属性，例如使用onclick
    * 用W3C标准，addEventListener（IE8以下用 attachEvent）
    注意：前面两种属于DOM0级事件标准，第三种属性DOM2级事件标准
+
    ```
     function addEvent(target, type, handler) {
         if (target.addEventListener) {
@@ -378,9 +379,11 @@
         }
     }
     ```
+
     2. 事件流依次经过捕获阶段、目标阶段、冒泡阶段（微软当年支持的做法）（这些阶段的划分在DOM2级事件标准才有） 
     3. 事件委托时，可以用 event.target || event.srcElement 来获得事件目标
     4. 不同绑定方式，不同的执行顺序
+
     ```
     <a href="javascript:alert(1)" onclick="alert(2)" id="link">click me</a>           
     var link = document.getElementById('link');
@@ -394,7 +397,8 @@
     });
     link.onclick = function () { alert(7); }      
     ```    
-    上面会输出：7，3，5，4，6，1
+
+  上面会输出：7，3，5，4，6，1
     * DOM的属性onclick会覆盖HTML中的onclick，优先级最高
     * javascript:协议优先级最低
     * 最困惑的是jQuery的on方法，如果代码先执行on方法，后面的on方法则跟着注册，即使代码放在addEventListener之后，因为jQuery源码里在监听事件的时候，把事件句柄存入一个handle队列，所以输出3之后就马上输出5
