@@ -401,16 +401,16 @@
 
       link.onclick = function () { alert(7); }      
 ```   
-       上面会输出：7，3，5，4，6，1
-       * DOM的属性onclick会覆盖HTML中的onclick，优先级最高
-       * javascript:协议优先级最低
-       * 最困惑的是jQuery的on方法，如果代码先执行on方法，后面的on方法则跟着注册，即使代码放在addEventListener之后，因为jQuery 源码里在监听事件的时候，把事件句柄存入一个handle队列，所以输出3之后就马上输出5
-       * 如果代码先执行addEventListener，再执行on方法，则按顺序触发事件句柄，但是on方法执行后，后面的代码遵循上面一步。
-    5. DOM2 级事件处理程序中的 this 也指向 addEventListener 的那个元素，但是IE8以下事件处理程序 中的 this 指向 window
-    6. removeEventListener 无法移除匿名函数的事件处理程序
-    7. IE8及更早版本只支持事件冒泡
-    8. stopPropagation() 取消事件的进一步捕获或冒泡。
-    9. stopImmediatePropagation() 取消事件的进一步捕获或冒泡，同时阻止任何事件处理程序被调用（DOM3级事件中新增）
-    10. eventPhase 调用事件处理程序的阶段：1表示捕获阶段，2表示“处于目标”，3表示冒泡阶段。
-    11. cancelBubble 在主流浏览器也能用，不仅仅在IE8以下。
-    12. focus、blur事件不会冒泡；focusin、focusout与它们等价，但能冒泡。jquery内部代码其实是用focusin和focusout来代理这两个属性的。
+   上面会输出：7，3，5，4，6，1
+   * DOM的属性onclick会覆盖HTML中的onclick，优先级最高
+   * javascript:协议优先级最低
+   * 最困惑的是jQuery的on方法，如果代码先执行on方法，后面的on方法则跟着注册，即使代码放在addEventListener之后，因为jQuery 源码里在监听事件的时候，把事件句柄存入一个handle队列，所以输出3之后就马上输出5
+   * 如果代码先执行addEventListener，再执行on方法，则按顺序触发事件句柄，但是on方法执行后，后面的代码遵循上面一步。
+5. DOM2 级事件处理程序中的 this 也指向 addEventListener 的那个元素，但是IE8以下事件处理程序 中的 this 指向 window
+6. removeEventListener 无法移除匿名函数的事件处理程序
+7. IE8及更早版本只支持事件冒泡
+8. stopPropagation() 取消事件的进一步捕获或冒泡。
+9. stopImmediatePropagation() 取消事件的进一步捕获或冒泡，同时阻止任何事件处理程序被调用（DOM3级事件中新增）
+10. eventPhase 调用事件处理程序的阶段：1表示捕获阶段，2表示“处于目标”，3表示冒泡阶段。
+11. cancelBubble 在主流浏览器也能用，不仅仅在IE8以下。
+12. focus、blur事件不会冒泡；focusin、focusout与它们等价，但能冒泡。jquery内部代码其实是用focusin和focusout来代理这两个属性的。
