@@ -338,6 +338,7 @@
    注意：对于null 和 undefined ，在IE6/7/8中用 Object.prototype.toString.call() 检测返回 '[object Object]'
 
    * constructor
+   ```
    ('sun').constructor === String
    (true).constructor === Boolean
    (12).constructor === Number
@@ -348,6 +349,7 @@
    (new Date()).constructor === Date
    (Math).constructor === Object  //注意，这里返回对象，并不是内置对象Math类型
    (new RegExp()).constructor === RegExp
+   ```
 
 ## 51、Object.prototype.toString 原理
    1. 在ECMAScript 5中，Object.prototype.toString()被调用时，会进行如下步骤： 
