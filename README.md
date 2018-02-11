@@ -293,4 +293,70 @@
 
 ## 49、VUE实例事件接口和浏览器的事件接口有何不同
 
-## 50、
+## 50、JavaScript的数据类型都有什么
+1. 基本(原始)数据类型：String,Boolean,Number,Undefined, Null
+2. 引用数据类型：Object(Array,Date,RegExp,Function,Math,JSON,Arguments,Object)
+3. 检查数据类型的方法：
+   * typeof
+   ```
+   typeof 'sun'        === 'string'
+   typeof true         === 'boolean'
+   typeof 12           === 'number'
+   typeof undefined    === 'undefined'
+   typeof null         === 'object'
+   typeof function(){} === 'function'
+   typeof []           === 'object'
+   typeof Math         === 'object'
+   typeof new Date()   === 'object'
+   typeof new RegExp() === 'object'
+   typeof JSON         === 'object'
+   typeof new Object() === 'object'
+   ```
+   注意：typeof 可以判断出一个函数和基本类型（除开null），但是判断不出一个数组；另外，比较特别的是 typeof null 返回的是 object，因为历史原因，null 表示还没指向具体内存地址，而 undefined 则表示变量还没有值。
+
+   * instanceof
+   ```
+   [] instanceof Array === true 
+   ```
+   注意：不同window或iframe之间的对象类型检测不能使用 instanceof 
+
+   * Object.prototype.toString（返回的是[[class]]属性）
+   ```
+   Object.prototype.toString.call('sun')          === '[object String]' 
+   Object.prototype.toString.call(true)           === '[object Boolean]' 
+   Object.prototype.toString.call(12)             === '[object Number]' 
+   Object.prototype.toString.call(undefined)      === '[object Undefined]' 
+   Object.prototype.toString.call(null)           === '[object Null]' 
+   Object.prototype.toString.call([])             === '[object Array]' 
+   Object.prototype.toString.call(function(){}{}) === '[object Function]' 
+   Object.prototype.toString.call(new Date())     === '[object Date]' 
+   Object.prototype.toString.call(Math)           === '[object Math]' 
+   Object.prototype.toString.call(new RegExp())   === '[object RegExp]' 
+   Object.prototype.toString.call(JSON)           === '[object JSON]'
+   Object.prototype.toString.call(new Object())   === '[object Object]'
+   ```
+   注意：对于null 和 undefined ，在IE6/7/8中用 Object.prototype.toString.call() 检测返回 '[object Object]'
+
+   * constructor
+   ('sun').constructor === String
+   (true).constructor === Boolean
+   (12).constructor === Number
+   (undefined).constructor //不能读这个属性
+   (null).constructor      //不能读这个属性
+   ([]).constructor === Array
+   (function(){}).constructor === Function
+   (new Date()).constructor === Date
+   (Math).constructor === Object  //注意，这里返回对象，并不是内置对象Math类型
+   (new RegExp()).constructor === RegExp
+
+## 51、Object.prototype.toString 原理
+   1. 在ECMAScript 5中，Object.prototype.toString()被调用时，会进行如下步骤： 
+- 如果 this是undefined ，返回 [object Undefined] ； 
+- 如果 this是null ， 返回 [object Null] ； 
+- 令 O 为以 this 作为参数调用 ToObject 的结果； 
+- 令 class 为 O 的内部属性 [[Class]] 的值； 
+- 返回三个字符串 "[object", class, 以及"]" 拼接而成的字符串。
+   2. ES5 规范
+   * 本规范的每种内置对象都定义了 [[Class]] 内部属性的值。宿主对象的 [[Class]] 内部属性的值可以是除了 "Arguments", "Array", "Boolean", "Date", "Error", "Function", "JSON", "Math", "Number", "Object", "RegExp", "String" 的任何字符串。[[Class]] 内部属性的值用于内部区分对象的种类。注，本规范中除了通过 Object.prototype.toString ( 见 15.2.4.2) 没有提供任何手段使程序访问此值。
+   3. ES6 规范
+   * 在ES6里，之前的 [[Class]] 不再使用，取而代之的是一系列的 internal slot, 返回由三个字符串 "[object", tag, and "]" 拼接而成的一个字符串。
