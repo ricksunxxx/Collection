@@ -347,17 +347,17 @@
    ([]).constructor === Array
    (function(){}).constructor === Function
    (new Date()).constructor === Date
-   (Math).constructor === Object  //注意，这里返回对象，并不是内置对象Math类型
+   (Math).constructor === Object  //注意，这里返回对象构造函数，并不是Math
    (new RegExp()).constructor === RegExp
    ```
 
 ## 51、Object.prototype.toString 原理
    1. 在ECMAScript 5中，Object.prototype.toString()被调用时，会进行如下步骤： 
-- 如果 this是undefined ，返回 [object Undefined] ； 
-- 如果 this是null ， 返回 [object Null] ； 
-- 令 O 为以 this 作为参数调用 ToObject 的结果； 
-- 令 class 为 O 的内部属性 [[Class]] 的值； 
-- 返回三个字符串 "[object", class, 以及"]" 拼接而成的字符串。
+    - 如果 this是undefined ，返回 [object Undefined] ； 
+    - 如果 this是null ， 返回 [object Null] ； 
+    - 令 O 为以 this 作为参数调用 ToObject 的结果； 
+    - 令 class 为 O 的内部属性 [[Class]] 的值； 
+    - 返回三个字符串 "[object", class, 以及"]" 拼接而成的字符串。    
    2. ES5 规范
    * 本规范的每种内置对象都定义了 [[Class]] 内部属性的值。宿主对象的 [[Class]] 内部属性的值可以是除了 "Arguments", "Array", "Boolean", "Date", "Error", "Function", "JSON", "Math", "Number", "Object", "RegExp", "String" 的任何字符串。[[Class]] 内部属性的值用于内部区分对象的种类。注，本规范中除了通过 Object.prototype.toString ( 见 15.2.4.2) 没有提供任何手段使程序访问此值。
    3. ES6 规范
