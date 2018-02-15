@@ -280,6 +280,42 @@
 * SAMEORIGIN：frame页面的地址只能为同源域名下的页面；
 * ALLOW-FROM origin：允许frame加载的页面地址；
 
+## 18、Ajax
+1. AJAX可以是同步请求，也可以是异步请求
+2. AJAX通过原生的 XMLHttpRequest 对象发出HTTP请求
+3. AJAX通过 onreadystatechange 指定回调函数，监听通信状态（readyState属性）的变化
+4. AJAX只能向同源网址（协议、域名、端口都相同）发出HTTP请求
+5. readyState 是XMLHttpRequest实例的属性
+* 0，对应常量UNSENT，表示XMLHttpRequest实例已经生成，但是open()方法还没有被调用。
+* 1，对应常量OPENED，表示send()方法还没有被调用，仍然可以使用setRequestHeader()，设定HTTP请求的头信息。
+* 2，对应常量HEADERS_RECEIVED，表示send()方法已经执行，并且头信息和状态码已经收到。
+* 3，对应常量LOADING，表示正在接收服务器传来的body部分的数据，如果responseType属性是text或者空字符串，responseText就会包含已经收到的部分信息。
+* 4，对应常量DONE，表示服务器数据已经完全接收，或者本次接收已经失败了。
+6. 可以使用abort()方法，终止XMLHttpRequest请求。
+7. status属性为只读属性，表示本次请求所得到的HTTP状态码，它是一个整数。
+8. XMLHttpRequest第一版，只能对 onreadystatechange 这一个事件指定回调函数。
+9. XMLHttpRequest第二版允许对更多的事件指定回调函数：
+* onloadstart 请求发出
+* onprogress 正在发送和加载数据
+* onabort 请求被中止，比如用户调用了abort()方法
+* onerror 请求失败
+* onload 请求成功完成
+* ontimeout 用户指定的时限到期，请求还未完成
+* onloadend 请求完成，不管成果或失败
+10. 通过跨域AJAX发送Cookie，需要打开withCredentials，而服务器必须显式返回Access-Control-Allow-Credentials 头信息
+11. 使用过open()方法的请求，再次使用这个方法，等同于调用abort()
+12. 缺点：
+* 1.Ajax干掉了Back与History功能，即对浏览器机制的破坏在动态更新页面的情况下，用户无法回到前一页的页面状态，因为浏览器仅能记忆历史纪录中的静态页面。
+* 对搜索引擎的支持比较弱。通过AJAX动态更新的页面可能无法被搜索引擎搜到。
+* 安全问题，暴露更多的数据和服务器逻辑，存在被攻击的可能性
+13. 适用场景
+* 表单驱动的交互
+* 动态加载数据，按需取数据
+* 数据局部刷新
+
+
+
+
 ## 12、web性能优化
 
 ## 12、浏览器兼容性问题
@@ -294,7 +330,7 @@
 
 ## 17、框架设计
 
-## 18、Ajax
+## 18、
 
 ## 19、小程序开发
 
