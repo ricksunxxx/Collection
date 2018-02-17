@@ -313,6 +313,11 @@
 * 动态加载数据，按需取数据
 * 数据局部刷新
 
+## 19、createDocumentFragment与createElement的区别
+1. createDocumentFragment 是创建文档片段，而 createElement 是创建文档元素，语义上一个是容器，一个是容器内容。
+2. createDocumentFragment 是把它所有子节点插入DOM，并不带本身，因为没有文档片段这样的标记，而 createElement 会整个插入DOM，包括它自己本身。
+3. createDocumentFragment 不可用使用属性 innerHTML 来添加子节点，createElement 则可以使用，因为 innerHTML属于元素的属性，文档片段不是元素。
+4. 在一次性添加多个元素到文档中时，一般使用 createDocumentFragment 来收纳所有的元素，然后把文档片段插入到DOM中，以此避免插入元素数量较大时出现页面性能问题。
 
 
 
