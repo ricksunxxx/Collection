@@ -319,6 +319,46 @@
 3. createDocumentFragment 不可用使用属性 innerHTML 来添加子节点，createElement 则可以使用，因为 innerHTML属于元素的属性，文档片段不是元素。
 4. 在一次性添加多个元素到文档中时，一般使用 createDocumentFragment 来收纳所有的元素，然后把文档片段插入到DOM中，以此避免插入元素数量较大时出现页面性能问题。
 
+## 20、原生一些常用方法
+1. 查找元素节点
+```
+document.getElementById
+document.getElementsByClassName
+document.getElementsByTagName
+document.getElementsByName     通过元素的Name属性的值
+document.querySelector         IE8+
+document.querySelectorAll      IE8+
+
+```
+2. 节点的属性
+```
+previousElementSibling      前一个元素节点
+nextElementSibling          后一个元素节点
+childNodes                  所有的子节点(包括文本节点和元素节点)
+firstChild                  第一个子节点
+firstElementChild           第一个子元素节点
+lastChild                   最后一个子节点
+lastElementChild            最后一个子元素节点
+parentNode                  父节点
+nodeName                    HTML 元素的大写字母标签名(文本节点的 nodeName 始终是 #text;文档节点的 nodeName 始终是 #document)
+nodeValue                   (元素节点的 nodeValue 是 null;本节点的 nodeValue 是文本本身;属性节点的 nodeValue 是属性值)
+nodeType                    节点的类型,元素1，属性2，文本3，注释8，文档9
+```
+3. 节点增加
+```
+appendChild()    添加
+removeChild()    移除
+replaceChild()   替换
+insertBefore()   插入
+```
+4. 创建节点
+```
+createDocumentFragment()    创建一个DOM片段
+createElement()             创建一个具体的元素
+createTextNode()            创建一个文本节点
+```
+
+
 
 
 ## 12、web性能优化
