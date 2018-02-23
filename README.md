@@ -369,6 +369,56 @@ createTextNode()            创建一个文本节点
 7. String.search 只能实现一次搜索匹配，即不带修饰符g
 8. 正则对象的 exec() 都会把完整的细节添加到它返回的数组中
 
+## 22、H5新增哪些新特性
+1. 新增新元素
+```
+<header>、<section>、<footer>、<article>、<aside>、<audio></audio>、<video><video>、<datalist>等
+```
+2. input新增类型
+```
+number、email、tel、date、month、url、range、search、color等
+```
+3. Web 存储
+
+```
+localStorage、sessionStorage
+```
+
+4. Canvas与SVG
+* Canvas 通过 JavaScript 来绘制 2D 图形；
+* SVG 是一种使用 XML 描述 2D 图形的语言；
+* Canvas 依赖分辨率，不支持事件处理器，最适合带有大型渲染区域的应用程序；
+* SVG 不依赖分辨率，支持事件处理器，不适合游戏应用，最适合带有大型渲染区域的应用程序。
+5. 地理定位 navigator.geolocation
+6. 应用程序缓存 
+通过创建 cache manifest 文件，可以轻松地创建 web 应用的离线版本。例如：
+```
+<html manifest="demo.appcache">
+```
+7. Web Workers  
+* Web Workers是运行在后台的 JavaScript，不会影响页面的性能
+* web worker 位于外部文件中，无法访问window 、document、parent对象。
+* web worker 一般用于更耗费 CPU 资源的任务。
+* 利用postMessage() 方法向 HTML 页面传回一段消息。
+```
+new Worker("demo_workers.js");
+w.onmessage=function(event){
+document.getElementById("result").innerHTML=event.data;
+};
+
+
+w.terminate();//终止
+```
+8. 服务器发送事件 EventSource
+* 网页自动获取来自服务器的更新
+```
+var source=new EventSource("demo_sse.php");
+source.onmessage=function(event)
+  {
+  document.getElementById("result").innerHTML+=event.data + "<br />";
+  };
+```  
+
 
 ## 12、web性能优化
 
@@ -430,7 +480,7 @@ createTextNode()            创建一个文本节点
 
 ## 40、盒子模型是什么
 
-## 41、H5新增了哪些特性
+
 
 ## 42、响应式布局
 
