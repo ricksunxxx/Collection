@@ -419,6 +419,17 @@ source.onmessage=function(event)
   };
 ```  
 
+## 23、fetch 与 ajax
+* 从 fetch()返回的 Promise 将不会拒绝HTTP错误状态, 即使响应是一个 HTTP 404 或 500,仅在网络故障时或任何阻止请求完成时，它才会拒绝
+* 默认情况下, fetch在服务端不会发送或接收任何 cookies,如果想要在同域中自动发送cookie,加上 credentials 的 same-origin 选项
+```
+fetch(url, {
+  credentials: ’same-origin'//如果设置值为include，则表示可以跨域传送cookie
+})
+```
+* fetch语法简洁，更加语义化，采用了Promise的异步处理机制，使用比ajax更加简单
+* XMLHttpRequest 是一个设计粗糙的 API，不符合关注分离（Separation of Concerns）的原则，配置和调用方式比较混乱
+
 
 ## 12、web性能优化
 
