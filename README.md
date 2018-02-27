@@ -430,6 +430,8 @@ fetch(url, {
 * fetch语法简洁，更加语义化，采用了Promise的异步处理机制，使用比ajax更加简单
 * XMLHttpRequest 是一个设计粗糙的 API，不符合关注分离（Separation of Concerns）的原则，配置和调用方式比较混乱
 
+## 24、浏览器内的事件队列
+整个的js代码是 macrotask 队列先执行，同步代码执行完后，有microtask执行microtask，没有microtask执行下一个macrotask，如此往复循环至结束
 
 ## 12、web性能优化
 
