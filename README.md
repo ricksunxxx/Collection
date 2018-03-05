@@ -52,7 +52,7 @@
    5. 拓展的对象功能，键值对重名可省略冒冒号和值，函数可省略冒号与 function 关键字，提供Object.assign()进行浅复制
    6. 解构，从对象或者数组里取出数据存为变量
    7. 展开运算符（...）,合并对象或者数组，或者切取对象或数组的一部分
-   8. mport 和 export
+   8. import 和 export
    9. Promise，用同步的方式去写异步代码
    10. Generators，生成器函数也是一种函数，最直观的表现就是比普通的function多了个星号*，在其函数体内可以使用yield关键字,有意思的是函数会在每个yield后暂停，可调用next方法进行唤醒。
    11. class、extends、super，在constructor里调用super(),因为子类没有自己的this对象，要继承父类的this对象
@@ -432,6 +432,14 @@ fetch(url, {
 
 ## 24、浏览器内的事件队列
 整个的js代码是 macrotask 队列先执行，同步代码执行完后，有microtask执行microtask，没有microtask执行下一个macrotask，如此往复循环至结束
+
+## 25、跨域
+1、jsonp
+2、cors 跨域资源共享
+3、document.domain + iframe跨域（此方案仅限主域相同，子域不同的跨域应用场景）
+4、window.postMessage 跨域
+5、使用反向代理服务器，使用代理服务器去获取需要的服务
+6、
 
 ## 12、web性能优化
 
