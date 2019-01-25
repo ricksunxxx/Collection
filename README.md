@@ -674,7 +674,7 @@ fetch(url, {
 
 
 
-##2019
+## 2019
 
 ## 1、 HTTP 与 HTTPS 区别
    1）HTTP协议以明文方式发送内容，不提供任何方式的数据加密，如果攻击者截取了Web浏览器和网站服务器之间的传输报文，就可以直接读懂其中的信息，因此，HTTP协议不适合传输一些敏感信息，比如：信用卡号、密码等支付信息。
@@ -709,4 +709,9 @@ fetch(url, {
 公钥加密计算量太大，如何减少耗用的时间？
 解决方法：每一次对话（session），客户端和服务器端都生成一个"对话密钥"（session key），用它来加密信息。由于"对话密钥"是对称加密，所以运算速度非常快，而服务器公钥只用于加密"对话密钥"本身，这样就减少了加密运算的消耗时间。
 
+## 2、 小程序架构原理
 
+1、原生组件有：input、textarea、video、camera、live-player、live-pusher、map、canvas
+2、整个小程序由两个 webview 组成，代码分为 UI 层和逻辑层。UI 层运行在第一个 WebView 当中，执行 DOM 操作和交互事件的响应，里面是 WAWebview.js 代码及编译后的内容。逻辑层执行在（第二个webview 中）独立的 JS 引擎中（iOS：JavaScriptCore, android：X5 JS解析器；统称 JSCore；开发工具中，nwjs Chrome 内核），WAService.js 代码和业务逻辑。
+
+当我们对 view 层进行事件操作后，会通过 WeixinJSBridge 将数据传递到 Native 系统层。Native 系统层决定是否要用 native 处理，然后丢给 逻辑层进行用户的逻辑代码处理。逻辑层处理完毕后会将数据通过 WeixinJSBridge 返给 View 层，View 渲染更新视图。
