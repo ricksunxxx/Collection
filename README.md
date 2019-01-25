@@ -734,3 +734,17 @@ fetch(url, {
 微信小程序生命周期分“应用生命周期”和“页面生命周期”。
 应用生命周期含onLaunch, onShow, onHide状态，onLaunch, onShow可获取打开小程序时的相关参数path, query, scene， shareTicket， referrerInfo，注册为App({})，一个小程序只有一个App({})。
 页面生命周期含onLoad, onShow, onHide, onReady, onUnload，onLoad可获取其他页面打开当前页面时所所调用的query参数，注册为Page({})，每个页面有且必须有一个Page({})。
+
+## 3、MVC
+   MVC模式（Model–view–controller）是软件工程中的一种软件架构模式。
+   控制器（Controller）- 负责转发请求，对请求进行处理。
+   视图（View） - 界面设计人员进行图形界面设计。
+   模型（Model） - 程序员编写程序应有的功能（实现算法等等）、数据库专家进行数据管理和数据库设计(可以实现具体的功能)。
+   
+## 4、MVVM
+   MVVM（Model–view–viewmodel）是一种软件架构模式，借鉴了桌面应用程序的MVC思想，在前端页面中，把Model用纯JavaScript对象表示，View负责显示，两者做到了最大限度的分离。
+   MVVM有助于将图形用户界面的开发与业务逻辑或后端逻辑（数据模型）的开发分离开来。
+   MVVM最大的优势是编写前端逻辑非常复杂的页面，尤其是需要大量DOM操作的逻辑，利用MVVM可以极大地简化前端页面的逻辑。
+   MVVM不是万能的，它的目的是为了解决复杂的前端逻辑。对于以展示逻辑为主的页面，例如，新闻，博客、文档等，不能使用MVVM展示数据，因为这些页面需要被搜索引擎索引，而搜索引擎无法获取使用MVVM并通过API加载的数据。所以，需要SEO（Search Engine Optimization）的页面，不能使用MVVM展示数据。不需要SEO的页面，如果前端逻辑复杂，就适合使用MVVM展示数据，例如，工具类页面，复杂的表单页面，用户登录后才能操作的页面等等。
+   
+
