@@ -730,3 +730,7 @@ fetch(url, {
    2、部分和 NA 相关的视图有使用限制，如微信的 scrollView 内不能有 textarea；
    3、页面大小、打开页面数量都受到限制
    4、需要单独开发适配，不能复用现有代码资源
+
+微信小程序生命周期分“应用生命周期”和“页面生命周期”。
+应用生命周期含onLaunch, onShow, onHide状态，onLaunch, onShow可获取打开小程序时的相关参数path, query, scene， shareTicket， referrerInfo，注册为App({})，一个小程序只有一个App({})。
+页面生命周期含onLoad, onShow, onHide, onReady, onUnload，onLoad可获取其他页面打开当前页面时所所调用的query参数，注册为Page({})，每个页面有且必须有一个Page({})。
