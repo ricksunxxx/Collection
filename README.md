@@ -716,3 +716,17 @@ fetch(url, {
 2、整个小程序由两个 webview 组成，代码分为 UI 层和逻辑层。UI 层运行在第一个 WebView 当中，执行 DOM 操作和交互事件的响应，里面是 WAWebview.js 代码及编译后的内容。逻辑层执行在（第二个webview 中）独立的 JS 引擎中（iOS：JavaScriptCore, android：X5 JS解析器；统称 JSCore；开发工具中，nwjs Chrome 内核），WAService.js 代码和业务逻辑。
 
 当我们对 view 层进行事件操作后，会通过 WeixinJSBridge 将数据传递到 Native 系统层。Native 系统层决定是否要用 native 处理，然后丢给 逻辑层进行用户的逻辑代码处理。逻辑层处理完毕后会将数据通过 WeixinJSBridge 返给 View 层，View 渲染更新视图。
+
+3、在 iOS 上，小程序的 javascript 代码是运行在 JavaScriptCore 中
+   在 Android 上，小程序的 javascript 代码是通过 X5 内核来解析
+   在 开发工具上， 小程序的 javascript 代码是运行在 nwjs（chrome内核） 中
+
+小程序这么处理的
+   好处是：
+   这样渲染进程和逻辑进程分离，并行处理：加速首屏渲染速度；避免单线程模型下，js 运算时间过长，UI 出现卡顿。 完全采用数据驱动的方式，不能直接操作 DOM，避免低质量的代码。 
+
+缺点：
+   1、不能灵活操作 DOM，无法实现较为复杂的爱的暖效果；
+   2、部分和 NA 相关的视图有使用限制，如微信的 scrollView 内不能有 textarea；
+   3、页面大小、打开页面数量都受到限制
+   4、需要单独开发适配，不能复用现有代码资源
