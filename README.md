@@ -753,4 +753,24 @@ fetch(url, {
    
    MVVM不是万能的，它的目的是为了解决复杂的前端逻辑。对于以展示逻辑为主的页面，例如，新闻，博客、文档等，不能使用MVVM展示数据，因为这些页面需要被搜索引擎索引，而搜索引擎无法获取使用MVVM并通过API加载的数据。所以，需要SEO（Search Engine Optimization）的页面，不能使用MVVM展示数据。不需要SEO的页面，如果前端逻辑复杂，就适合使用MVVM展示数据，例如，工具类页面，复杂的表单页面，用户登录后才能操作的页面等等。
    
+   
+## 5、双向数据绑定
+   实现数据绑定的做法有大致如下几种：
+
+   发布者-订阅者模式（backbone.js）
+
+   脏值检查（angular.js） 
+   angular.js 是通过脏值检测的方式比对数据是否有变更，来决定是否更新视图，最简单的方式就是通过 setInterval() 定时轮询检测数据变动，当然Google不会这么low，angular只有在指定的事件触发时进入脏值检测，大致如下：
+
+   DOM事件，譬如用户输入文本，点击按钮等。( ng-click )
+   
+   XHR响应事件 ( $http )
+   
+   浏览器Location变更事件 ( $location )
+   
+   Timer事件( $timeout , $interval )
+   
+   执行 $digest() 或 $apply()
+
+   数据劫持（vue.js） vue.js 则是采用数据劫持结合发布者-订阅者模式的方式，通过Object.defineProperty()来劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调
 
