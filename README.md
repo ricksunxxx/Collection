@@ -816,4 +816,24 @@ fetch(url, {
    
    （6）Symbol 作为属性名，该属性不会出现在for...in、for...of循环中，也不会被Object.keys()、Object.getOwnPropertyNames()、JSON.stringify()返回。但是，它也不是私有属性，有一个Object.getOwnPropertySymbols方法，可以获取指定对象的所有 Symbol 属性名。
    
+## 9、Set   
+   （1）它类似于数组，但是成员的值都是唯一的，没有重复的值；
    
+   （2）数组去重：Array.from(new Set(array)) 或者 [...new Set(array)]
+   
+   （3）去除字符串里面的重复字符：[...new Set('ababbc')].join('')
+   
+   （4）WeakSet 结构与 Set 类似，也是不重复的值的集合：WeakSet 的成员只能是对象，而不能是其他类型的值，WeakSet 不能遍历，是因为成员都是弱引用，随时可能消失，遍历机制无法保证成员的存在，很可能刚刚遍历结束，成员就取不到了。WeakSet 的一个用处，是储存 DOM 节点，而不用担心这些节点从文档移除时，会引发内存泄漏。
+   
+## 10、Map
+   （1）Object 结构提供了“字符串—值”的对应，Map 结构提供了“值—值”的对应，是一种更完善的 Hash 结构实现。
+   
+   （2）Map 的键实际上是跟内存地址绑定的，只要内存地址不一样，就视为两个键。
+   
+   （3）Map 的遍历顺序就是插入顺序。
+   
+   （4）WeakMap只接受对象作为键名（null除外），不接受其他类型的值作为键名。
+   
+   （5）WeakMap的键名所指向的对象，不计入垃圾回收机制，没有办法列出所有键名，某个键名是否存在完全不可预测，跟垃圾回收机制是否运行相关。
+   
+   （6）WeakMap 应用的典型场合就是 DOM 节点作为键名。
