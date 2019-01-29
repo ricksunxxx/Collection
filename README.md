@@ -803,4 +803,17 @@ fetch(url, {
    
    （5）删除一个数组元素时，数组的长度不受影响，但元素不存在了，在循环的时候会跳过，如果想不跳过，把对应的元素设置为undefined。
    
+## 8、Symbol
+   （1）ES6 引入了一种新的原始数据类型Symbol，表示独一无二的值。它是 JavaScript 语言的第七种数据类型（前六种是：undefined、null、Boolean、String、数值Number、Object）。
+   
+   （2）生产symbol时，Symbol函数前不能使用new命令，否则会报错。这是因为生成的 Symbol 是一个原始类型的值，不是对象，不能添加属性。
+   
+   （3）Symbol函数的参数只是表示对当前 Symbol 值的描述，返回值还是不一样的。
+   
+   （4）Symbol 值不能与其他类型的值进行运算，Symbol 值可以显式转为字符串，也可以转为布尔值。
+   
+   （5）Symbol 值作为对象属性名时，不能用点运算符，必须放在方括号之中。
+   
+   （6）Symbol 作为属性名，该属性不会出现在for...in、for...of循环中，也不会被Object.keys()、Object.getOwnPropertyNames()、JSON.stringify()返回。但是，它也不是私有属性，有一个Object.getOwnPropertySymbols方法，可以获取指定对象的所有 Symbol 属性名。
+   
    
