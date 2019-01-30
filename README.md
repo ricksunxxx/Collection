@@ -851,4 +851,10 @@ fetch(url, {
    
    （6）express 是普通的回调函数， koa 是利用ES7 中 Async/Await 的特性，没有回调。
    
+## 12、macrotasks（宏任务）与 microtasks （微任务）
+   执行一个宏任务-》执行当前所有可执行的微任务-》执行下一个宏任务-》执行当前所有可执行的微任务-》执行下一个宏任务，依次循环。
+   
+   macrotasks: setTimeout, setInterval, setImmediate, requestAnimationFrame, I/O, UI rendering
+   
+   microtasks: process.nextTick, Promises, Object.observe, MutationObserver
    
