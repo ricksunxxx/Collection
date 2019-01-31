@@ -888,7 +888,7 @@ fetch(url, {
 ## 14、cookie         
    （1）跨域时，cookie是不会被发送到服务端的；浏览器设置不支持cookie时，也不会。
    
-   （2）删除一个cookie 把expires 设置为一个过去的时间点就行了（HTTP1.0），或者设置
+   （2）删除一个cookie 把expires 设置为一个过去的时间点就行了（HTTP1.0），或者设置max-age=0。
    
    （3）服务端返回的response header中有set-cookie字段，每个字段对应一个cookie（不能将多个cookie放在一个set-cookie字段中）。
    
