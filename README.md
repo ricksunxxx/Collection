@@ -860,3 +860,41 @@ fetch(url, {
    
    同步代码(包括promise的构造函数) -> promise.then -> setTimeout 
    
+## 13、DOM事件
+   （1）DOM0级事件就是将一个函数赋值给一个事件处理属性，可以给属性赋值null来解绑事件，其缺点在于无法同时绑定多个处理函数。
+   
+   （2）无DOM1级事件，因为1级DOM标准中并没有定义事件相关的内容。
+   
+   （3）DOM2级事件定义了addEventListener和removeEventListener两个方法。如果回调函数是匿名函数，则无法移除监听，增加多个时都不会覆盖。如果是非匿名函数，增加多个同样的处理函数时（同为冒泡或者同为捕获），只会执行一次。
+   
+   （4）DOM3级事件在DOM2级事件的基础上添加了更多的事件类型，比如：UI事件、焦点事件、键盘事件等，相当于扩充了事件类型而已。
+   
+   （5）事件是先捕获再冒泡的，默认监听器时在冒泡阶段处理事件，DOM0级事件也是发生在冒泡阶段。
+   
+   （6）事件处理的Event对象包含这些方法或属性：
+   
+         stopPropagation：用于阻止事件的进一步传播，比如阻止事件继续向上层冒泡或者向下捕获（IE8用 cancelBubble = true）；
+         
+         preventDefault：用于取消事件的默认操作，比如a链接的跳转行为和表单自动提交行为（IE8用 returnValue = false）；
+         
+         stopImmediatePropagation：和stopPropagation相比，stopImmediatePropagation同样可以阻止事件的传播，不同点在于其还可以把这个元素绑定的同类型事件也阻止了；
+         
+         type属性：事件发生的类型；
+         
+         target属性：件的目标对象（IE8用 event.srcElement）；
+         
+         keyCode属性：键盘事件属性，keyCode指定了按下键的键码值；
+         
+         
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
