@@ -898,12 +898,98 @@ fetch(url, {
    
    （6） 只能在安全协议下HTTPS，js才能设置secure类型的 cookie。
    
+## 15、XMLHttpRequest    
+   （1）ajax是一种技术方案，但并不是一种新技术。它依赖的是现有的CSS/HTML/Javascript，而其中最核心的依赖是浏览器提供的XMLHttpRequest对象，是这个对象使得浏览器可以发出HTTP请求与接收HTTP响应。
    
+   （2）XMLHttpRequest Level 1
+      
+         受同源策略的限制，不能发送跨域请求；
+
+         不能发送二进制文件（如图片、视频、音频等），只能发送纯文本数据；
+
+         在发送和获取数据的过程中，无法实时获取进度信息，只能判断是否完成； 
+         
+   （3）XMLHttpRequest Level 2
+
+      可以发送跨域请求，在服务端允许的情况下；
+
+      支持发送和接收二进制数据；
+
+      新增formData对象，支持发送表单数据；
+
+      发送和获取数据时，可以获取进度信息；
+
+      可以设置请求的超时时间；
+
+   （4）setRequestHeader必须在open()方法之后，send()方法之前调用，否则会抛错。可以调用多次，最终的值采用追加append的方式。
    
+   （5）getAllResponseHeaders()只能拿到限制以外（即被视为safe）的header字段，而不是全部字段。无法获取 response 中的 Set-Cookie、Set-Cookie2这2个字段。
    
+   （6）对于跨域请求，客户端允许获取的response header字段只限于“simple response header”（Cache-Control,Content-Language,Content-Type,Expires,Last-Modified,Pragma）和“Access-Control-Expose-Headers”。
    
+   （7）UNSENT (初始状态，未打开)、OPENED (已打开，未发送)、HEADERS_RECEIVED (已获取响应头)、	LOADING (正在下载响应体)、DONE (整个数据传输过程结束)
    
+   （8） send()之后再设置此xhr.timeout，但计时起始点仍为调用xhr.send()方法的时刻。
    
+   （9）当xhr为同步请求时，有如下限制：
+   
+      xhr.timeout必须为0
+
+      xhr.withCredentials必须为 false
+
+      xhr.responseType必须为""（注意置为"text"也不允许）  
+      
+   （10）上传下载进度，每50ms触发一次
+      
+      上传触发的是xhr.upload对象的 onprogress事件
+
+      下载触发的是xhr对象的onprogress事件   
+      
+   （11）可发送的数据类型 ，如果是 GET/HEAD请求，send()方法一般不传参或传 null。不过即使你真传入了参数，参数也最终被忽略，xhr.send(data)中的data会被置为 null。
+   
+      ArrayBuffer
+
+      Blob
+
+      Document
+
+      DOMString
+
+      FormData
+
+      null   
+      
+   （12）发同域请求时，浏览器会将cookie自动加在request header中，跨域请求时，cookie并没有自动加在request header中。
+   
+         在CORS标准中做了规定，默认情况下，浏览器在发送跨域请求时，不能发送任何认证信息（credentials）如"cookies"和"HTTP authentication schemes"。除非xhr.withCredentials为true（xhr对象有一个属性叫withCredentials，默认值为false） 。  
+         
+         根本原因是cookies也是一种认证信息，在跨域请求中，client端必须手动设置xhr.withCredentials=true，且server端也必须允许request能携带认证信息（即response header中包含Access-Control-Allow-Credentials:true），这样浏览器才会自动将cookie加在request header中。
+         
+         一旦跨域request能够携带认证信息，server端一定不能将Access-Control-Allow-Origin设置为*。
+
+   （13）只有发生了网络层级别的异常才会触发onerror事件，对于应用层级别的异常，如响应返回的xhr.statusCode是4xx时，并不属于Network error，所以不会触发onerror事件。
+   
+   （14）事件触发顺序
+   
+      触发xhr.onreadystatechange(之后每次readyState变化时，都会触发一次)
+
+      触发xhr.onloadstart
+      //上传阶段开始：
+
+      触发xhr.upload.onloadstart
+
+      触发xhr.upload.onprogress
+
+      触发xhr.upload.onload
+
+      触发xhr.upload.onloadend
+      //上传结束，下载阶段开始：
+
+      触发xhr.onprogress
+
+      触发xhr.onload
+
+      触发xhr.onloadend   
    
    
    
