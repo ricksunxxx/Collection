@@ -1044,20 +1044,76 @@ fetch(url, {
                Samesite=Strict：这种称为严格模式，表明这个 Cookie 在任何情况下都不可能作为第三方 Cookie，绝无例外。
                Samesite=Lax：这种称为宽松模式，比 Strict 放宽了点限制：假如这个请求是这种请求（改变了当前页面或者打开了新页面）且同时是个GET请求，则这个Cookie可以作为第三方Cookie。但是，假如这个请求是从 http://a.com 发起的对 http://b.com 的异步请求，或者页面跳转是通过表单的 post 提交触发的，则不允许代cookie。SamesiteCookie目前有一个致命的缺陷：不支持子域
                
+## 17、xss
+  （1）Cross-Site Scripting（跨站脚本攻击）简称 XSS，是一种代码注入攻击。攻击者通过在目标网站上注入恶意脚本，使之在用户的浏览器上运行。利用这些恶意脚本，攻击者可获取用户的敏感信息如 Cookie、SessionID 等，进而危害数据安全。
+  
+  （2）注入的方式：
+ 
+      在 HTML 中内嵌的文本中，恶意内容以 script 标签形成注入。
 
+      在内联的 JavaScript 中，拼接的数据突破了原本的限制（字符串，变量，方法名等）。
 
+      在标签属性中，恶意内容包含引号，从而突破属性值的限制，注入其他属性或者标签。
 
+      在标签的 href、src 等属性中，包含 javascript: 等可执行代码。
 
+      在 onload、onerror、onclick 等事件中，注入不受控制代码。
 
+      在 style 属性和标签中，包含类似 background-image:url("javascript:..."); 的代码（新版本浏览器已经可以防范）。
 
+      在 style 属性和标签中，包含类似 expression(...) 的 CSS 表达式代码（新版本浏览器已经可以防范）。
 
+   （3）分类：存储型 XSS、反射型 XSS、DOM 型 XSS
+   
+      反射型 XSS 跟存储型 XSS 的区别是：存储型 XSS 的恶意代码存在数据库里，反射型 XSS 的恶意代码存在 URL 里。
 
+      反射型 XSS 漏洞常见于通过 URL 传递参数的功能，如网站搜索、跳转等。
 
+      由于需要用户主动打开恶意的 URL 才能生效，攻击者往往会结合多种手段诱导用户点击。
+      DOM 型 XSS 跟前两种 XSS 的区别：DOM 型 XSS 攻击中，取出和执行恶意代码由浏览器端完成，属于前端 JavaScript 自身的安全漏洞，而其他两种 XSS 都属于服务端的安全漏洞。
 
+   （4）XSS攻击的预防
+   
+         输入过滤：对于明确的输入类型，例如数字、URL、电话号码、邮件地址等等内容，进行输入过滤还是必要的。
+         
+         预防存储型和反射型 XSS 攻击：
+         
+            改成纯前端渲染，把代码和数据分隔开；
+            
+            对 HTML 做充分转义，采用合适的转义库。
+            
+         预防 DOM 型 XSS 攻击：
+         
+            要把不可信的数据作为 HTML 插到页面上；
+            
+            不要把不可信的数据拼接到字符串中传递给这些DOM的一些 API
+            
+         其他方式：
+            Content Security Policy
+            
+            HTTP-only Cookie: 禁止 JavaScript 读取某些敏感 Cookie，攻击者完成 XSS 注入后也无法窃取此 Cookie。
 
+            验证码：防止脚本冒充用户提交危险操作。
 
+   （5）预防xss原则
+   
+         利用模板引擎
+         开启模板引擎自带的 HTML 转义功能。
 
+         避免内联事件
+         尽量不要使用 onLoad="onload('{{data}}')"、onClick="go('{{action}}')" 这种拼接内联事件的写法。在 JavaScript 中通过 .addEventlistener() 事件绑定会更安全。
 
+         避免拼接 HTML
+         前端采用拼接 HTML 的方法比较危险，如果框架允许，使用 createElement、setAttribute 之类的方法实现。或者采用比较成熟的渲染框架，如 Vue/React 等。
+
+         时刻保持警惕
+         在插入位置为 DOM 属性、链接等位置时，要打起精神，严加防范。
+
+         增加攻击难度，降低攻击后果
+         通过 CSP、输入长度配置、接口安全措施等方法，增加攻击的难度，降低攻击的后果。
+
+         主动检测和发现
+         可使用 XSS 攻击字符串和自动扫描工具寻找潜在的 XSS 漏洞。
 
 
 
