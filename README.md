@@ -1089,7 +1089,16 @@ fetch(url, {
             不要把不可信的数据拼接到字符串中传递给这些DOM的一些 API
             
          其他方式：
-            Content Security Policy
+            Content Security Policy（内容安全策略）
+            禁止加载外域代码，防止复杂的攻击逻辑。
+
+            禁止外域提交，网站被攻击后，用户的数据不会泄露到外域。
+
+            禁止内联脚本执行（规则较严格，目前发现 github 使用）。
+
+            禁止未授权的脚本执行（新特性，Google Map 移动版在使用）。
+
+            合理使用上报可以及时发现 XSS，利于尽快修复问题
             
             HTTP-only Cookie: 禁止 JavaScript 读取某些敏感 Cookie，攻击者完成 XSS 注入后也无法窃取此 Cookie。
 
