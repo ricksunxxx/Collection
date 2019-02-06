@@ -1157,16 +1157,26 @@ fetch(url, {
 
 ## 21、同源策略与跨域
       （1）同源策略1995年引入浏览器，目前所有浏览器都实行这个政策。
+      
       （2）同源是指：协议相同、域名相同、端口相同
+      
       （3）实现同源策略原因：安全考虑，保证用户信息的安全，防止恶意的网站窃取数据（因为浏览器同时还规定，提交表单不受同源政策的限制）。
+      
       （4）限制这些：Cookie、LocalStorage 和 IndexDB 无法读取、 DOM 无法获得、AJAX 请求不能发送。
+      
       （5）两个网页一级域名相同，只是二级域名不同，浏览器允许通过设置document.domain共享 Cookie，也可以获取到DOM。这种方法只适用于iframe 窗口，LocalStorage 和 IndexDB 无法通过这种方法，规避同源政策，而要使用PostMessage API。
+      
       （6）在浏览器端实现通信方式：片段识别符（URL的#号后面的部分）、window.name、window.postMessage。
+      
       （7）ajax与服务器跨域通信方式：  
+      
       JSONP：简单适用， 老式浏览器全部支持，服务器改造非常小、动态添加script脚本的方式决定了它只能用get带参数的方式进行。
+      
       设置代理服务器：请求多了一个中介转发阶段，时间延迟；
+      
       WebSocket：H5实现的跨域通信协议，只要服务器支持就可以，请求头中带有Upgrade: websocket、Connection: Upgrade、origin（服务器开白名单用）。
-      CORS：跨域资源共享
+    
+     CORS：跨域资源共享
  
 ## 22、cors
    （1）浏览器将CORS请求分成两类：简单请求（simple request）和非简单请求（not-so-simple request）。
@@ -1185,7 +1195,11 @@ fetch(url, {
          凡是不同时满足上面两个条件，就属于非简单请求。
          
    （2）平时开发中，大多数接口都是Content-Type：application/json，也就是复杂请求，复杂请求是需要预请求的。
+   
    （3）默认情况下，Cookie不包括在CORS请求之中。带上时，需要服务器设置Access-Control-Allow-Credentials为true，ajax需要设置withCredentials为true。
+   
    （4）复杂请求：请求方法是PUT或DELETE，或者Content-Type字段的类型是application/json。
+   
    （5）预检查检查Origin、Access-Control-Request-Method和Access-Control-Request-Headers。
+   
    （6）CORS与JSONP的使用目的相同，但是比JSONP更强大。JSONP只支持GET请求，CORS支持所有类型的HTTP请求。JSONP的优势在于支持老式浏览器，以及可以向不支持CORS的网站请求数据。
