@@ -1203,3 +1203,30 @@ fetch(url, {
    （5）预检查检查Origin、Access-Control-Request-Method和Access-Control-Request-Headers。
    
    （6）CORS与JSONP的使用目的相同，但是比JSONP更强大。JSONP只支持GET请求，CORS支持所有类型的HTTP请求。JSONP的优势在于支持老式浏览器，以及可以向不支持CORS的网站请求数据。
+
+
+## 23、http
+   （1）请求报文：请求方法，URL，协议版本，可选的请求首部字段、内容实体。
+   （2）响应报文：协议版本，状态码，用以解释状态的原因短语，可选的响应首部字段、实体主体。
+   （3）get和post区别：
+      Get 请求能缓存，Post 不能
+      Post 相对 Get 安全一点点，因为Get 请求都包含在 URL 里，且会被浏览器保存历史纪录，Post 不会，但是在抓包的情况下都是一样的。
+      Post 可以通过 request body来传输比 Get 更多的数据，Get 没有这个技术
+      URL有长度限制，会影响 Get 请求，但是这个长度限制是浏览器规定的，不是 RFC 规定的
+      Post 支持更多的编码类型且不对数据类型限制
+    （4）状态码：
+    
+         204 No content，表示请求成功，但响应报文不含实体的主体部分
+         301 moved permanently，永久性重定向，表示资源已被分配了新的 URL
+         302 found，临时性重定向，表示资源临时被分配了新的 URL
+         303 see other，表示资源存在着另一个 URL，应使用 GET 方法丁香获取资源
+         304 not modified，表示服务器允许访问资源，但因发生请求未满足条件的情况
+         307 temporary redirect，临时重定向，和302含义相同
+         401 unauthorized，表示发送的请求需要有通过 HTTP 认证的认证信息
+         403 forbidden，表示对请求资源的访问被服务器拒绝
+         503 service unavailable
+      
+ ## 25、http缓存
+   （1）强制缓存：HTTP 1.0  Expires:GMT格式的时间串 和 HTTP 1.1  Cache-Control:max-age=xxx
+   （2）协商缓存（对比缓存）：HTTP 1.0 Last-Modified（浏览器发送时用If-Modified-Since） 和 HTTP 1.1 Etag（浏览器发送时用If-None-Match）
+   （3）1.1版本优先级高，协商缓存都要发起请求，返回状态码有304（无更新）和200（更新）。
