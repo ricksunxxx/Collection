@@ -1253,11 +1253,20 @@ fetch(url, {
          
    （5）组合继承优化（完美）：Child.prototype = Object.create(Parent.prototype)，子类构造函数内部还是依然借用父类的构造函数来初始化 Parent.call(this,参数)。
          
-         
-         
-   
-   
-   
+ ## 27、new () and  Object.create      
+   new Test():
+
+      create new Object() obj
+      set obj.__proto__ to Test.prototype
+      return Test.call(obj) || obj;
+      // normally obj is returned but constructors in JS can return a value
+      
+   Object.create( Test.prototype )
+
+      create new Object() obj
+      set obj.__proto__ to Test.prototype
+      return obj;
+
    
    
    
