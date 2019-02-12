@@ -1289,7 +1289,12 @@ fetch(url, {
    
    浏览器对页面进行渲染呈现给用户（此处涉及浏览器的渲染原理）
    
- ## 29、冒泡排序：
+ ## 29、冒泡排序：稳定
+ 只对比相邻两个元素 
+ 
+ 最优O(n)
+ 
+ 最差O(n2)
        function maopao(arra){
 
              var temp;
@@ -1319,6 +1324,13 @@ fetch(url, {
           console.log(s)
 
  ## 30、快速排序：
+ 
+ 类似二分法，分成两个子问题，递归。
+ 
+ 最优O(nlogn)
+ 
+ 最差O(n2)
+ 
        function quickSort(arr){
               if(arr.length<=1){
                   return arr;//如果数组只有一个数，就直接返回；
@@ -1339,3 +1351,88 @@ fetch(url, {
               }
               return quickSort(left).concat(numValue,quickSort(right));//递归不断重复比较
           }
+          
+ ## 31、选择排序：不稳定
+ 选择排序就是从第一个元素开始，从当前数据的右侧未排序区间中选取一个最小的元素，然后放到左侧已排序区间末尾，依次往后进行，直到最后一个元素。
+ 
+ 时间复杂度为O(n2)
+ 
+ 冒泡排序通过依次交换相邻两个顺序不合法的元素位置，从而将当前最小（大）元素放到合适的位置。
+ 
+ 选择排序每遍历依次都记住了当前最小（大）元素的位置，最后仅需一次交换操作即可将其放到合适的位置
+ 
+      function mintomax(par){
+        for(var i=0; i<par.length-1; i++){
+          for(var j=i+1; j<par.length; j++){
+            if(par[j]<par[i]){//par[i]为记住的最小值
+              var temp;
+              temp=par[j];
+              par[j]=par[i];
+              par[i]=temp;
+            }
+          }
+        }
+        return par;
+      }
+      var arr = [11, 2, 3, 445, 7, 32, 71, 8, 94];
+      console.log(mintomax(arr));          
+
+ ## 32、插入排序：稳定
+ 插入排序就是从第一个元素开始，把当前数据的左侧看作是有序的，然后将当前元素插入到正确的位置，依次往后进行，直到最后一个元素。
+ 
+ 最好O(n)
+ 
+ 最差O(n2)
+ 
+       function insertSort(arr) {
+        let length = arr.length;
+        for(let i = 1; i < length; i++) {
+          let temp = arr[i];
+          let j = i;
+          for(; j > 0; j--) {
+            if(temp >= arr[j-1]) {
+              break;      // 当前考察的数大于前一个数，证明有序，退出循环
+            }
+            arr[j] = arr[j-1]; // 将前一个数复制到后一个数上
+          }
+          arr[j] = temp;  // 找到考察的数应处于的位置
+        }
+        return arr;
+      }
+
+      // example
+      let arr = [2,5,10,7,10,32,90,9,11,1,0,10]
+      console.log(insertSort(arr));
+      
+      
+## 33、希尔排序：   
+   希尔排序的基本思想是：先将整个待排序的记录序列分割成为若干子序列分别进行直接插入排序，待整个序列中的记录基本有序时，再对全体记录进行依次直接插入排序。
+   
+希尔排序也称递减增量排序算法，是插入排序的一种更高效的改进版本。但希尔排序是非稳定排序算法。
+    
+希尔排序是基于插入排序的以下两点性质而提出改进方法的：
+
+插入排序在对几乎已经排好序的数据操作时，效率高，即可以达到线性排序的效率；
+
+但插入排序一般来说是低效的，因为插入排序每次只能将数据移动一位；
+
+      function shellSort(arr) {
+          var len = arr.length,
+              temp,
+              gap = 1;
+          while(gap < len/2) {          //动态定义间隔序列
+              gap = gap*2+1;
+          }
+          for (gap; gap > 0; gap = Math.floor(gap/2)) {
+              for (var i = gap; i < len; i++) {
+                  temp = arr[i];
+                  for (var j = i-gap; j >= 0 && arr[j] > temp; j -= gap) {
+                      arr[j+gap] = arr[j];
+                  }
+                  arr[j+gap] = temp;
+              }
+          }
+          return arr;
+      }
+      let arr = [2,5,10,7,10,32,90,9,11,1,0,10]
+      shellSort(arr);//[0, 1, 2, 5, 7, 9, 10, 10, 10, 11, 32, 90]
