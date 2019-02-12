@@ -1464,3 +1464,31 @@ fetch(url, {
       var arr = mergeSort([32,12,56,78,76,45,36]);
       console.log(arr);   // [12, 32, 36, 45, 56, 76, 78]
 
+## 35、自适应正方形
+   （1）由于margin, padding 的百分比数值是相对父元素的宽度计算的，只需将元素垂直方向的一个padding值设定为与width相同的百分比就可以制作出自适应正方形了。
+   
+   优点：简洁明了，且兼容性好。
+
+   缺点：会导致在元素上设置max-width属性时，max-height不相应地收缩。
+   
+      .square-shape {
+          width: 50%;
+          height: 0;
+          padding-bottom: 50%;
+          background: #ddd;
+      }
+   （2） 用伪元素撑开content部分的高度，从而使max-height属性生效。
+ 
+         #square{  
+             width:30%;  
+             background:red;
+             overflow:hidden;  //如果伪元素用padding-top则无需触发BFC
+             max-width:200px;
+         }  
+         #square:after{  
+             content: '';  
+             display: block;  
+             margin-top:100%; //也可以用padding-top，此时父元素不需要触发BFC 
+         }  
+
+      
