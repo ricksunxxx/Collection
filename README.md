@@ -1508,4 +1508,25 @@ function new_instance_of(leftVaule, rightVaule) {
 }
 
 
-## 37、
+## 37、为何img、input等内联元素可以设置宽、高
+   替换元素就是浏览器根据元素的标签和属性，来决定元素的具体显示内容。
+
+   替换元素一般有内在尺寸，所以具有width和height，可以设定。例如你不指定img的width和height时，就按其内在尺寸显示，也就是图片被保存的时候的宽度和高度。
+
+   对于表单元素，浏览器也有默认的样式，包括宽度和高度。
+   
+   img元素是可替换内联元素，可替换就是浏览器根据元素的标签和属性，来决定元素的具体显示形式，img、input、textarea、select、object都是替换元素，替换元素一般有内在尺寸，所以具有width/height，可以设定，当不指定img的width和height的时候，就按照其内在尺寸显示，也就是图片被保存的时候的宽度和高度
+
+
+   
+## 38、行标签都有哪些？特点？
+   img、span、a、sub、sup、em、i、b、strong
+
+   设置width、heigh不起作用（img和input等替换元素除外，见37点）。
+
+   margin、padding垂直方向不起作用，水平方向上有效（img和input等替换元素除外，见37点）。
+
+   p标签中不能嵌套div标签 ，内联元素却不能包含块元素，它只能包含其他的内联元素。
+
+## 39、块级元素和行内元素
+   <div>、<p>、<h1>…<h6>、<ol>、<ul>、<li>
