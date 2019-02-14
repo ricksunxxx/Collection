@@ -1545,3 +1545,49 @@ function new_instance_of(leftVaule, rightVaule) {
    设置高度height 无效，可以通过line-height来设置。
    设置margin 只有左右margin有效，上下无效。
    设置padding只有左右padding有效，上下则无效。注意元素范围是增大了，但是对元素周围的内容是没影响的。
+
+## 41、浮动
+   浮动的框可以向左或向右移动，直到它的外边缘碰到包含框或另一个浮动框的边框为止，当一个元素浮动之后，不会影响到块级框的布局而只会影响内联框（通常是文本）的排列
+   
+   div是块级元素，在页面中独占一行，自上而下排列，也就是传说中的流
+   
+   清除浮动可以理解为打破横向排列。
+   
+   浮动可以理解为让某个div元素脱离标准流，漂浮在标准流之上，和标准流不是一个层次。     
+   
+   清除浮动的关键字是clear，官方定义如下：
+  
+       语法：
+
+       clear : none | left | right | both
+
+       取值：
+
+       none  :  默认值。允许两边都可以有浮动对象
+
+       left   :  不允许左边有浮动对象
+
+       right  :  不允许右边有浮动对象
+
+       both  :  不允许有浮动对象
+   
+   对于CSS的清除浮动(clear)，一定要牢记：这个规则只能影响使用清除的元素本身，不能影响其他元素。
+   
+   清除浮动方法：
+   
+   1、解决高度缺陷，父元素设置overflow属性overflow：hidden， zoom:1（IE6），会形成BFC；
+   2、解决高度缺陷，父元素最后增加无用元素或者伪元素clear:both;
+   3、父元素也设置浮动；
+   4、父元素设置position为fixed或者absolute，,会形成BFC。
+   
+## 42、盒模型
+   css的盒模型由content(内容)、padding(内边距)、border(边框)、margin(外边距)组成。
+   
+   在w3c和模型中，设置的width/height是content的宽度/高度，在怪异模式中width/height设置的是content+padding+border宽度/高度。
+   
+   在w3c盒子模型中盒子的大小由content、padding、border决定，在在怪异模式中盒子大小由width和height决定。
+   
+   定位有四个值static(静止)、relative(相对)、absolute(绝对)、fixed(固定)。
+   
+   left、top、right、bottom、z-index不能对static起作用。
+   
