@@ -1673,7 +1673,16 @@ function new_instance_of(leftVaule, rightVaule) {
    如果客户端的浏览器禁用了 Cookie ，使用一种叫做URL重写的技术来进行会话跟踪，即每次HTTP交互，URL后面都会被附加上一个诸如 sid=xxxxx 这样的参数，服务端据此来识别用户。
 
 
-
+## 46、浏览器兼容问题
+   1）IE下，even对象有srcElement属性，但是没有target属性，其他浏览器则相反
+   
+   2）addEventListener、preventDefault
+   
+   3）不同浏览器的标签默认的外补丁和内补丁不同
+   
+   4）图片默认有间距
+  
+   
 
 
 
