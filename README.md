@@ -1591,3 +1591,61 @@ function new_instance_of(leftVaule, rightVaule) {
    
    left、top、right、bottom、z-index不能对static起作用。
    
+## 43、二分查找：从有序的数组查找。
+
+　　思路：1.将数组折半，分成左右两个数组。
+
+　　　　　2.判断要查找的数和中间位置数值的大小，来判断要查找的数实在哪一半。
+
+　　　　　3.之后继续折半查找，直至找到这个数。
+
+　　方法：二分查找有两种方法，一种是非递归方式，采用while方式，判断是否符合要求。另一种是采用递归方式，采用if方式，依次递归，找到相应的值。
+
+　　步骤一（非递归）：
+
+      function binary_search(arr, key) {
+          var low = 0,
+              high = arr.length - 1;
+
+          while (low <= high) {
+              var mid = parseInt((high + low) / 2);
+              if (key == arr[mid]) {
+                  return mid;
+              } else if (key > arr[mid]) {
+                  low = mid + 1;
+              } else if (key < arr[mid]) {
+                  high = mid - 1;
+              } else {
+                  return -1;
+              }
+          }
+      }
+
+
+　　步骤二 （递归）：
+  
+         function binary_search(arr, low, high, key) {
+             if (low > high) {
+                 return -1;
+             }
+             var mid = parseInt((high + low) / 2);
+             if (arr[mid] == key) {
+                 return mid;
+             } else if (arr[mid] > key) {
+                 high = mid - 1;
+                 return binary_search(arr, low, high, key);
+             } else if (arr[mid] < key) {
+                 low = mid + 1;
+                 return binary_search(arr, low, high, key);
+             }
+         }
+         
+　　时间复杂度：总共有n个元素，渐渐跟下去就是n,n/2,n/4,....n/2^k，其中k就是循环的次数，由于你n/2^k取整后>=1，即令n/2^k=1，可得k=log2n,（是以2为底，n的对数）
+
+　　　　　　　　O(log2n) => O(logn)
+
+　　优点：比较次数少，查找速度快，平均性能好。
+
+　　缺点：要求待查表为有序表，且插入删除困难。
+
+　　结论：适用于不经常变动而查找频繁的有序列表。
