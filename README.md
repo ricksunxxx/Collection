@@ -1682,8 +1682,12 @@ function new_instance_of(leftVaule, rightVaule) {
    
    4）图片默认有间距
   
-   
+## 47、LAB.js加载脚本的原理
+Script DOM Element 没法保证执行顺序
 
+cache trick 依赖特定浏览器某些版本的的特性，设置脚本type为非"text/javascript" 的值，但有些浏览器是不会预下载的
+
+XHR Injection 通过XHR请求到脚本，创建script标签实现代码注入。
 
 
 
