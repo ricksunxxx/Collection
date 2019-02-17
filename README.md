@@ -1728,5 +1728,15 @@ XHR Injection 通过XHR请求到脚本，创建script标签实现代码注入。
    
    
    
+  ## 50、post content-type类型
+   application/x-www-form-urlencoded （浏览器原生支持，浏览器的原生 form 表单，如果不设置 enctype 属性，默认以此方式，提交的数据按照 key1=val1&key2=val2 的方式进行编码，key 和 val 都进行了 URL 转码）
+   
+   multipart/form-data （浏览器原生支持，使用表单上传文件时，必须让 form 的 enctyped等于这个值，请求体被分割成多部分，每部分使用 --boundary分割）
+   
+   application/json （主流常用，可提交复杂的结构化数据）
+   
+   text/xml（简单、服务器支持好，各种语言的实现都有，XML结构相对于json来说还是过于臃肿）
+   
+   
    
    
