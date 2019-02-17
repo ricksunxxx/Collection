@@ -1689,5 +1689,44 @@ cache trick 依赖特定浏览器某些版本的的特性，设置脚本type为�
 
 XHR Injection 通过XHR请求到脚本，创建script标签实现代码注入。
 
-
-
+## 48、HTTP1.0、HTTP1.1 和 HTTP2.0 的区别
+   影响一个 HTTP 网络请求的因素主要有两个：带宽和延迟。
+   
+   带宽不是问题了，延迟问题有三个：
+   
+         浏览器阻塞
+         DNS 查询
+         建立连接
+         
+   （1）HTTP1.0和HTTP1.1区别：
+   
+         缓存处理：在HTTP1.0中主要使用header里的If-Modified-Since,Expires来做为缓存判断的标准，HTTP1.1则引入了更多的缓存控制策略例如Entity tag， If-Match, If-None-Match等更多可供选择的缓存头来控制缓存策略。
+         长连接：在HTTP1.1中默认开启Connection： keep-alive
+   
+   （2）HTTP2.0和HTTP1.X相比：
+   
+         二进制分帧：HTTP1.x的解析是基于文本，HTTP2.0采用二进制格式
+         多路复用（并行发送，http1.1中的长连接是指不关闭TCP，复用同一个TCP连接发送请求，但是同一个域名只有4个左右的请求能处理，多出来的就会阻塞，http2.0则不会）
+         header压缩，通讯双方各自cache一份header fields表
+         服务端推送
+   
+   
+## 49、Object.defineProperty() 的缺点
+   此方法直接在一个对象上定义一个新属性，或者修改一个已经存在的属性， 并返回这个对象。
+   
+   数据描述符是一个拥有可写或不可写值的属性
+   
+   存取描述符是由一对 getter-setter 函数功能来描述的属性
+   
+   描述符必须是两种形式之一；不能同时是两者
+   
+   如果一个属性的 configurable 为 false，则其 writable 特性也只能修改为 false
+   
+      不能监听数组的变化（数组内部的修改不会触发setter，框架一般是重写对应的方法，返回新的数组来替换）
+      必须遍历对象的每个属性
+      必须深层遍历嵌套的对象
+   
+   
+   
+   
+   
